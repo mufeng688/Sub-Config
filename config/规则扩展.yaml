@@ -61,6 +61,11 @@ prepend:
   - 'IP-CIDR,208.78.164.0/22,🎯 全球直连'
   - 'DOMAIN-KEYWORD,lzcdn,🎯 全球直连'
   - 'DOMAIN-KEYWORD,cdnlz,🎯 全球直连'
+  - 'DOMAIN-KEYWORD,lz-cdn,🎯 全球直连'
   - 'DOMAIN-KEYWORD,ffzy,🎯 全球直连'
+  - 'DOMAIN-KEYWORD,qwqfun.one,🎯 全球直连'
+  - 'DOMAIN-KEYWORD,rrcdnbf,🎯 全球直连'
+  - 'DOMAIN-KEYWORD,fanwantv,🎯 全球直连'
+  - 'DOMAIN-KEYWORD,nbtvjx,🎯 全球直连'
 append: []
 delete: []
