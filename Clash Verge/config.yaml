@@ -135,7 +135,7 @@ ipcidr: &a7 {type: http, behavior: ipcidr, interval: 28800}
 proxy-providers:
   Subscribe:
     <<: *a1
-    url: 替换为订阅链接
+    url: https://api.acaisbest.shop/api/v1/client/subscribe?token=8ddc2214780e669703b5392d74f17b41
     path: ./proxy_providers/Airport.yaml
     
 proxies: null
