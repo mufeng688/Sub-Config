@@ -15,61 +15,61 @@ dns:
     - tls://1.0.0.1:853
     - tls://dns.google:853
 proxies:
-  - {name: xymhh-singbox_hysteria2, server: hy.xymhh.eu.org, port: 31837, client-fingerprint: chrome, type: hysteria2, password: ceb587d7-4d77-48e6-a27d-862cbf9f59a6, auth: ceb587d7-4d77-48e6-a27d-862cbf9f59a6, sni: hy.xymhh.eu.org, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: xymhh-singbox_hysteria2 2, server: hy2.xymhh.eu.org, port: 25122, client-fingerprint: chrome, type: hysteria2, password: b0b5153c-f1ab-4041-898a-0beaa28aa87f, auth: b0b5153c-f1ab-4041-898a-0beaa28aa87f, sni: hy2.xymhh.eu.org, skip-cert-verify: false, alpn: [h3], udp: true}
+  - {name: 🇺🇸 United States 自建, server: hy.xymhh.eu.org, port: 31837, client-fingerprint: chrome, type: hysteria2, password: ceb587d7-4d77-48e6-a27d-862cbf9f59a6, auth: ceb587d7-4d77-48e6-a27d-862cbf9f59a6, sni: hy.xymhh.eu.org, skip-cert-verify: false, alpn: [h3], udp: true}
+  - {name: 🇭🇰 Hong Kong 自建, server: hy2.xymhh.eu.org, port: 25122, client-fingerprint: chrome, type: hysteria2, password: b0b5153c-f1ab-4041-898a-0beaa28aa87f, auth: b0b5153c-f1ab-4041-898a-0beaa28aa87f, sni: hy2.xymhh.eu.org, skip-cert-verify: false, alpn: [h3], udp: true}
 proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
       - DIRECT
-      - xymhh-singbox_hysteria2
-      - xymhh-singbox_hysteria2 2
+      - 🇺🇸 United States 自建
+      - 🇭🇰 Hong Kong 自建
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
-      - xymhh-singbox_hysteria2
-      - xymhh-singbox_hysteria2 2
+      - 🇺🇸 United States 自建
+      - 🇭🇰 Hong Kong 自建
   - name: 🌍 国外媒体
     type: select
     proxies:
       - 🚀 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - xymhh-singbox_hysteria2
-      - xymhh-singbox_hysteria2 2
+      - 🇺🇸 United States 自建
+      - 🇭🇰 Hong Kong 自建
   - name: 📲 电报信息
     type: select
     proxies:
       - 🚀 节点选择
       - 🎯 全球直连
-      - xymhh-singbox_hysteria2
-      - xymhh-singbox_hysteria2 2
+      - 🇺🇸 United States 自建
+      - 🇭🇰 Hong Kong 自建
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 全球直连
       - 🚀 节点选择
-      - xymhh-singbox_hysteria2
-      - xymhh-singbox_hysteria2 2
+      - 🇺🇸 United States 自建
+      - 🇭🇰 Hong Kong 自建
   - name: 🍎 苹果服务
     type: select
     proxies:
       - 🚀 节点选择
       - 🎯 全球直连
-      - xymhh-singbox_hysteria2
-      - xymhh-singbox_hysteria2 2
+      - 🇺🇸 United States 自建
+      - 🇭🇰 Hong Kong 自建
   - name: 📢 谷歌FCM
     type: select
     proxies:
       - 🚀 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - xymhh-singbox_hysteria2
-      - xymhh-singbox_hysteria2 2
+      - 🇺🇸 United States 自建
+      - 🇭🇰 Hong Kong 自建
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -92,8 +92,8 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - xymhh-singbox_hysteria2
-      - xymhh-singbox_hysteria2 2
+      - 🇺🇸 United States 自建
+      - 🇭🇰 Hong Kong 自建
 rules:
   - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连
   - DOMAIN-SUFFIX,ip6-localhost,🎯 全球直连
