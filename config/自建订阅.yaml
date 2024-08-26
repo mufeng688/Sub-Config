@@ -41,6 +41,14 @@ proxy-groups:
       - 🎯 全球直连
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
+  - name: 💬 OpenAi
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ♻️ 自动选择
+      - 🎯 全球直连
+      - 🇺🇸 United States 自建
+      - 🇭🇰 Hong Kong 自建
   - name: 📲 电报信息
     type: select
     proxies:
@@ -2203,7 +2211,7 @@ rules:
   - DOMAIN-SUFFIX,olevod.io,🌍 国外媒体
   - DOMAIN-SUFFIX,olevod.tv,🌍 国外媒体
   - DOMAIN-SUFFIX,olevodtv.com,🌍 国外媒体
-  - DOMAIN-KEYWORD,openai,🌍 国外媒体
+  - DOMAIN-KEYWORD,openai,💬 OpenAi
   - DOMAIN,gemini.google.com,🌍 国外媒体
   - DOMAIN-SUFFIX,auth0.com,🌍 国外媒体
   - DOMAIN-SUFFIX,challenges.cloudflare.com,🌍 国外媒体
@@ -2216,8 +2224,8 @@ rules:
   - DOMAIN-SUFFIX,intercomcdn.com,🌍 国外媒体
   - DOMAIN-SUFFIX,oaistatic.com,🌍 国外媒体
   - DOMAIN-SUFFIX,oaiusercontent.com,🌍 国外媒体
-  - DOMAIN-SUFFIX,openai.com,🌍 国外媒体
-  - DOMAIN-SUFFIX,openaiapi-site.azureedge.net,🌍 国外媒体
+  - DOMAIN-SUFFIX,openai.com,💬 OpenAi
+  - DOMAIN-SUFFIX,openaiapi-site.azureedge.net,💬 OpenAi
   - DOMAIN-SUFFIX,sentry.io,🌍 国外媒体
   - DOMAIN-SUFFIX,stripe.com,🌍 国外媒体
   - DOMAIN-SUFFIX,pbs.org,🌍 国外媒体
@@ -2586,7 +2594,7 @@ rules:
   - IP-CIDR,119.235.236.0/23,🚀 节点选择,no-resolve
   - IP-CIDR,147.92.128.0/17,🚀 节点选择,no-resolve
   - IP-CIDR,203.104.128.0/19,🚀 节点选择,no-resolve
-  - DOMAIN-SUFFIX,openai.com,🚀 节点选择
+  - DOMAIN-SUFFIX,openai.com,💬 OpenAi
   - DOMAIN-SUFFIX,challenges.cloudflare.com,🚀 节点选择
   - DOMAIN-KEYWORD,1drv,🚀 节点选择
   - DOMAIN-KEYWORD,onedrive,🚀 节点选择
