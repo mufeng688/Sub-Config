@@ -15,8 +15,32 @@ dns:
     - tls://1.0.0.1:853
     - tls://dns.google:853
 proxies:
-  - {name: 🇺🇸 United States 自建, server: hy.xymhh.eu.org, port: 31837, client-fingerprint: chrome, type: hysteria2, password: ceb587d7-4d77-48e6-a27d-862cbf9f59a6, auth: ceb587d7-4d77-48e6-a27d-862cbf9f59a6, sni: hy.xymhh.eu.org, skip-cert-verify: false, alpn: [h3], udp: true}
-  - {name: 🇭🇰 Hong Kong 自建, server: hy2.xymhh.eu.org, port: 25122, client-fingerprint: chrome, type: hysteria2, password: b0b5153c-f1ab-4041-898a-0beaa28aa87f, auth: b0b5153c-f1ab-4041-898a-0beaa28aa87f, sni: hy2.xymhh.eu.org, skip-cert-verify: false, alpn: [h3], udp: true}
+  - {
+      name: 🇺🇸 United States 自建,
+      server: hy.xymhh.eu.org,
+      port: 31837,
+      client-fingerprint: chrome,
+      type: hysteria2,
+      password: ceb587d7-4d77-48e6-a27d-862cbf9f59a6,
+      auth: ceb587d7-4d77-48e6-a27d-862cbf9f59a6,
+      sni: hy.xymhh.eu.org,
+      skip-cert-verify: false,
+      alpn: [h3],
+      udp: true,
+    }
+  - {
+      name: 🇭🇰 Hong Kong 自建,
+      server: hy2.xymhh.eu.org,
+      port: 25122,
+      client-fingerprint: chrome,
+      type: hysteria2,
+      password: b0b5153c-f1ab-4041-898a-0beaa28aa87f,
+      auth: b0b5153c-f1ab-4041-898a-0beaa28aa87f,
+      sni: hy2.xymhh.eu.org,
+      skip-cert-verify: false,
+      alpn: [h3],
+      udp: true,
+    }
 proxy-groups:
   - name: 🚀 节点选择
     type: select
@@ -1971,6 +1995,10 @@ rules:
   - IP-CIDR6,2001:67c:4e8::/48,📲 电报信息,no-resolve
   - IP-CIDR6,2001:b28:f23d::/48,📲 电报信息,no-resolve
   - IP-CIDR6,2001:b28:f23f::/48,📲 电报信息,no-resolve
+  - DOMAIN-SUFFIX,chatgpt.com,💬 OpenAi
+  - DOMAIN-KEYWORD,openai,💬 OpenAi
+  - DOMAIN-SUFFIX,openai.com,💬 OpenAi
+  - DOMAIN-SUFFIX,openaiapi-site.azureedge.net,💬 OpenAi
   - DOMAIN-SUFFIX,edgedatg.com,🌍 国外媒体
   - DOMAIN-SUFFIX,go.com,🌍 国外媒体
   - DOMAIN-KEYWORD,abematv.akamaized.net,🌍 国外媒体
@@ -2211,7 +2239,6 @@ rules:
   - DOMAIN-SUFFIX,olevod.io,🌍 国外媒体
   - DOMAIN-SUFFIX,olevod.tv,🌍 国外媒体
   - DOMAIN-SUFFIX,olevodtv.com,🌍 国外媒体
-  - DOMAIN-KEYWORD,openai,💬 OpenAi
   - DOMAIN,gemini.google.com,🌍 国外媒体
   - DOMAIN-SUFFIX,auth0.com,🌍 国外媒体
   - DOMAIN-SUFFIX,challenges.cloudflare.com,🌍 国外媒体
@@ -2224,8 +2251,6 @@ rules:
   - DOMAIN-SUFFIX,intercomcdn.com,🌍 国外媒体
   - DOMAIN-SUFFIX,oaistatic.com,🌍 国外媒体
   - DOMAIN-SUFFIX,oaiusercontent.com,🌍 国外媒体
-  - DOMAIN-SUFFIX,openai.com,💬 OpenAi
-  - DOMAIN-SUFFIX,openaiapi-site.azureedge.net,💬 OpenAi
   - DOMAIN-SUFFIX,sentry.io,🌍 国外媒体
   - DOMAIN-SUFFIX,stripe.com,🌍 国外媒体
   - DOMAIN-SUFFIX,pbs.org,🌍 国外媒体
@@ -2594,7 +2619,6 @@ rules:
   - IP-CIDR,119.235.236.0/23,🚀 节点选择,no-resolve
   - IP-CIDR,147.92.128.0/17,🚀 节点选择,no-resolve
   - IP-CIDR,203.104.128.0/19,🚀 节点选择,no-resolve
-  - DOMAIN-SUFFIX,openai.com,💬 OpenAi
   - DOMAIN-SUFFIX,challenges.cloudflare.com,🚀 节点选择
   - DOMAIN-KEYWORD,1drv,🚀 节点选择
   - DOMAIN-KEYWORD,onedrive,🚀 节点选择
