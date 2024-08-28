@@ -221,6 +221,26 @@ proxy-groups:
       - DIRECT
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
+      - 🇯🇵 Japan 01
+      - 🇸🇬 Singapore 01
+      - 🇨🇳 Taiwan 01
+      - 🇺🇸 United States 01
+      - United Kingdom 01
+      - 🇭🇰 Hong Kong | 家宽 3.0x
+      - 🇨🇳 Taiwan | 家宽 3.0x
+      - 🇺🇸 United States | 家宽 3.0x
+      - South Korea | 家宽 3.0x
+      - New Zealand | 家宽 3.0x
+      - Pakistan | 家宽 3.0x
+      - Turkey | 冷门
+      - Argentina | 冷门
+      - North Korea | 冷门
+      - Antarctica | 冷门
+      - Iceland | 冷门
+      - Nigeria | 冷门
+      - US-Emby专用 0.01x
+      - steam下载专用 0.00x
+
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -229,6 +249,25 @@ proxy-groups:
     proxies:
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
+      - 🇯🇵 Japan 01
+      - 🇸🇬 Singapore 01
+      - 🇨🇳 Taiwan 01
+      - 🇺🇸 United States 01
+      - United Kingdom 01
+      - 🇭🇰 Hong Kong | 家宽 3.0x
+      - 🇨🇳 Taiwan | 家宽 3.0x
+      - 🇺🇸 United States | 家宽 3.0x
+      - South Korea | 家宽 3.0x
+      - New Zealand | 家宽 3.0x
+      - Pakistan | 家宽 3.0x
+      - Turkey | 冷门
+      - Argentina | 冷门
+      - North Korea | 冷门
+      - Antarctica | 冷门
+      - Iceland | 冷门
+      - Nigeria | 冷门
+      - US-Emby专用 0.01x
+      - steam下载专用 0.00x
   - name: 🌍 国外媒体
     type: select
     proxies:
@@ -237,9 +276,25 @@ proxy-groups:
       - 🎯 全球直连
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇸🇬 新加坡 01
-      - 🇸🇬 新加坡 02
-      - 🇸🇬 新加坡 03
+      - 🇯🇵 Japan 01
+      - 🇸🇬 Singapore 01
+      - 🇨🇳 Taiwan 01
+      - 🇺🇸 United States 01
+      - United Kingdom 01
+      - 🇭🇰 Hong Kong | 家宽 3.0x
+      - 🇨🇳 Taiwan | 家宽 3.0x
+      - 🇺🇸 United States | 家宽 3.0x
+      - South Korea | 家宽 3.0x
+      - New Zealand | 家宽 3.0x
+      - Pakistan | 家宽 3.0x
+      - Turkey | 冷门
+      - Argentina | 冷门
+      - North Korea | 冷门
+      - Antarctica | 冷门
+      - Iceland | 冷门
+      - Nigeria | 冷门
+      - US-Emby专用 0.01x
+      - steam下载专用 0.00x
   - name: 💬 OpenAi
     type: select
     proxies:
@@ -248,9 +303,25 @@ proxy-groups:
       - 🎯 全球直连
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇸🇬 新加坡 01
-      - 🇸🇬 新加坡 02
-      - 🇸🇬 新加坡 03
+      - 🇯🇵 Japan 01
+      - 🇸🇬 Singapore 01
+      - 🇨🇳 Taiwan 01
+      - 🇺🇸 United States 01
+      - United Kingdom 01
+      - 🇭🇰 Hong Kong | 家宽 3.0x
+      - 🇨🇳 Taiwan | 家宽 3.0x
+      - 🇺🇸 United States | 家宽 3.0x
+      - South Korea | 家宽 3.0x
+      - New Zealand | 家宽 3.0x
+      - Pakistan | 家宽 3.0x
+      - Turkey | 冷门
+      - Argentina | 冷门
+      - North Korea | 冷门
+      - Antarctica | 冷门
+      - Iceland | 冷门
+      - Nigeria | 冷门
+      - US-Emby专用 0.01x
+      - steam下载专用 0.00x
   - name: 📲 电报信息
     type: select
     proxies:
@@ -258,9 +329,25 @@ proxy-groups:
       - 🎯 全球直连
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇸🇬 新加坡 01
-      - 🇸🇬 新加坡 02
-      - 🇸🇬 新加坡 03
+      - 🇯🇵 Japan 01
+      - 🇸🇬 Singapore 01
+      - 🇨🇳 Taiwan 01
+      - 🇺🇸 United States 01
+      - United Kingdom 01
+      - 🇭🇰 Hong Kong | 家宽 3.0x
+      - 🇨🇳 Taiwan | 家宽 3.0x
+      - 🇺🇸 United States | 家宽 3.0x
+      - South Korea | 家宽 3.0x
+      - New Zealand | 家宽 3.0x
+      - Pakistan | 家宽 3.0x
+      - Turkey | 冷门
+      - Argentina | 冷门
+      - North Korea | 冷门
+      - Antarctica | 冷门
+      - Iceland | 冷门
+      - Nigeria | 冷门
+      - US-Emby专用 0.01x
+      - steam下载专用 0.00x
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
@@ -268,9 +355,25 @@ proxy-groups:
       - 🚀 节点选择
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇸🇬 新加坡 01
-      - 🇸🇬 新加坡 02
-      - 🇸🇬 新加坡 03
+      - 🇯🇵 Japan 01
+      - 🇸🇬 Singapore 01
+      - 🇨🇳 Taiwan 01
+      - 🇺🇸 United States 01
+      - United Kingdom 01
+      - 🇭🇰 Hong Kong | 家宽 3.0x
+      - 🇨🇳 Taiwan | 家宽 3.0x
+      - 🇺🇸 United States | 家宽 3.0x
+      - South Korea | 家宽 3.0x
+      - New Zealand | 家宽 3.0x
+      - Pakistan | 家宽 3.0x
+      - Turkey | 冷门
+      - Argentina | 冷门
+      - North Korea | 冷门
+      - Antarctica | 冷门
+      - Iceland | 冷门
+      - Nigeria | 冷门
+      - US-Emby专用 0.01x
+      - steam下载专用 0.00x
   - name: 🍎 苹果服务
     type: select
     proxies:
@@ -278,9 +381,25 @@ proxy-groups:
       - 🎯 全球直连
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇸🇬 新加坡 01
-      - 🇸🇬 新加坡 02
-      - 🇸🇬 新加坡 03
+      - 🇯🇵 Japan 01
+      - 🇸🇬 Singapore 01
+      - 🇨🇳 Taiwan 01
+      - 🇺🇸 United States 01
+      - United Kingdom 01
+      - 🇭🇰 Hong Kong | 家宽 3.0x
+      - 🇨🇳 Taiwan | 家宽 3.0x
+      - 🇺🇸 United States | 家宽 3.0x
+      - South Korea | 家宽 3.0x
+      - New Zealand | 家宽 3.0x
+      - Pakistan | 家宽 3.0x
+      - Turkey | 冷门
+      - Argentina | 冷门
+      - North Korea | 冷门
+      - Antarctica | 冷门
+      - Iceland | 冷门
+      - Nigeria | 冷门
+      - US-Emby专用 0.01x
+      - steam下载专用 0.00x
   - name: 📢 谷歌FCM
     type: select
     proxies:
@@ -289,9 +408,25 @@ proxy-groups:
       - ♻️ 自动选择
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇸🇬 新加坡 01
-      - 🇸🇬 新加坡 02
-      - 🇸🇬 新加坡 03
+      - 🇯🇵 Japan 01
+      - 🇸🇬 Singapore 01
+      - 🇨🇳 Taiwan 01
+      - 🇺🇸 United States 01
+      - United Kingdom 01
+      - 🇭🇰 Hong Kong | 家宽 3.0x
+      - 🇨🇳 Taiwan | 家宽 3.0x
+      - 🇺🇸 United States | 家宽 3.0x
+      - South Korea | 家宽 3.0x
+      - New Zealand | 家宽 3.0x
+      - Pakistan | 家宽 3.0x
+      - Turkey | 冷门
+      - Argentina | 冷门
+      - North Korea | 冷门
+      - Antarctica | 冷门
+      - Iceland | 冷门
+      - Nigeria | 冷门
+      - US-Emby专用 0.01x
+      - steam下载专用 0.00x
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -316,9 +451,25 @@ proxy-groups:
       - ♻️ 自动选择
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇸🇬 新加坡 01
-      - 🇸🇬 新加坡 02
-      - 🇸🇬 新加坡 03
+      - 🇯🇵 Japan 01
+      - 🇸🇬 Singapore 01
+      - 🇨🇳 Taiwan 01
+      - 🇺🇸 United States 01
+      - United Kingdom 01
+      - 🇭🇰 Hong Kong | 家宽 3.0x
+      - 🇨🇳 Taiwan | 家宽 3.0x
+      - 🇺🇸 United States | 家宽 3.0x
+      - South Korea | 家宽 3.0x
+      - New Zealand | 家宽 3.0x
+      - Pakistan | 家宽 3.0x
+      - Turkey | 冷门
+      - Argentina | 冷门
+      - North Korea | 冷门
+      - Antarctica | 冷门
+      - Iceland | 冷门
+      - Nigeria | 冷门
+      - US-Emby专用 0.01x
+      - steam下载专用 0.00x
 rules:
   - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连
   - DOMAIN-SUFFIX,ip6-localhost,🎯 全球直连
