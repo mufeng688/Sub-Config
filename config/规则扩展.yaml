@@ -67,5 +67,6 @@ prepend:
   - 'DOMAIN-KEYWORD,rrcdnbf,🎯 全球直连'
   - 'DOMAIN-KEYWORD,fanwantv,🎯 全球直连'
   - 'DOMAIN-KEYWORD,nbtvjx,🎯 全球直连'
+  - 'DOMAIN-KEYWORD,gemini,💬 OpenAi'
 append: []
 delete: []
