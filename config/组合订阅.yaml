@@ -42,7 +42,16 @@ proxies:
       udp: true,
     }
   - {
-      name: "🇸🇬 新加坡 01",
+      name: "🇯🇵 Japan 01",
+      type: ss,
+      server: tjsedht.cfprefer1.xyz,
+      port: 19563,
+      cipher: aes-256-gcm,
+      password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138,
+      udp: true,
+    }
+  - {
+      name: "🇸🇬 Singapore 01",
       type: ss,
       server: tjsedht.cfprefer1.xyz,
       port: 14337,
@@ -51,23 +60,159 @@ proxies:
       udp: true,
     }
   - {
-      name: "🇸🇬 新加坡 02",
+      name: "🇨🇳 Taiwan 01",
       type: ss,
       server: tjsedht.cfprefer1.xyz,
-      port: 43934,
+      port: 50937,
       cipher: aes-256-gcm,
       password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138,
       udp: true,
     }
   - {
-      name: "🇸🇬 新加坡 03",
+      name: "🇺🇸 United States 01",
       type: ss,
       server: tjsedht.cfprefer1.xyz,
-      port: 10002,
+      port: 25818,
       cipher: aes-256-gcm,
       password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138,
       udp: true,
     }
+  - {
+      name: "United Kingdom 01",
+      type: ss,
+      server: tjsedht.cfprefer1.xyz,
+      port: 10013,
+      cipher: aes-256-gcm,
+      password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138,
+      udp: true,
+    }
+  - {
+      name: "🇭🇰 Hong Kong | 家宽 3.0x",
+      type: ss,
+      server: tjsedht.cfprefer1.xyz,
+      port: 10065,
+      cipher: aes-256-gcm,
+      password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138,
+      udp: true,
+    }
+  - {
+      name: "🇨🇳 Taiwan | 家宽 3.0x",
+      type: ss,
+      server: tjsedht.cfprefer1.xyz,
+      port: 10051,
+      cipher: aes-256-gcm,
+      password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138,
+      udp: true,
+    }
+  - {
+      name: "🇺🇸 United States | 家宽 3.0x",
+      type: ss,
+      server: tjsedht.cfprefer1.xyz,
+      port: 10049,
+      cipher: aes-256-gcm,
+      password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138,
+      udp: true,
+    }
+  - {
+      name: "South Korea | 家宽 3.0x",
+      type: ss,
+      server: tjsedht.cfprefer1.xyz,
+      port: 10053,
+      cipher: aes-256-gcm,
+      password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138,
+      udp: true,
+    }
+  - {
+      name: "New Zealand | 家宽 3.0x",
+      type: ss,
+      server: tjsedht.cfprefer1.xyz,
+      port: 10056,
+      cipher: aes-256-gcm,
+      password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138,
+      udp: true,
+    }
+  - {
+      name: "Pakistan | 家宽 3.0x",
+      type: ss,
+      server: tjsedht.cfprefer1.xyz,
+      port: 10059,
+      cipher: aes-256-gcm,
+      password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138,
+      udp: true,
+    }
+  - {
+      name: "Turkey | 冷门",
+      type: ss,
+      server: tjsedht.cfprefer1.xyz,
+      port: 10005,
+      cipher: aes-256-gcm,
+      password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138,
+      udp: true,
+    }
+  - {
+      name: "Argentina | 冷门",
+      type: ss,
+      server: tjsedht.cfprefer1.xyz,
+      port: 10006,
+      cipher: aes-256-gcm,
+      password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138,
+      udp: true,
+    }
+  - {
+      name: "North Korea | 冷门",
+      type: ss,
+      server: tjsedht.cfprefer1.xyz,
+      port: 10029,
+      cipher: aes-256-gcm,
+      password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138,
+      udp: true,
+    }
+  - {
+      name: "Antarctica | 冷门",
+      type: ss,
+      server: tjsedht.cfprefer1.xyz,
+      port: 10030,
+      cipher: aes-256-gcm,
+      password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138,
+      udp: true,
+    }
+  - {
+      name: "Iceland | 冷门",
+      type: ss,
+      server: tjsedht.cfprefer1.xyz,
+      port: 10031,
+      cipher: aes-256-gcm,
+      password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138,
+      udp: true,
+    }
+  - {
+      name: "Nigeria | 冷门",
+      type: ss,
+      server: tjsedht.cfprefer1.xyz,
+      port: 10037,
+      cipher: aes-256-gcm,
+      password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138,
+      udp: true,
+    }
+  - {
+      name: "US-Emby专用 0.01x",
+      type: ss,
+      server: dtjaswffgyjh.cfprefer1.xyz,
+      port: 39808,
+      cipher: aes-256-gcm,
+      password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138,
+      udp: true,
+    }
+  - {
+      name: "steam下载专用 0.00x",
+      type: ss,
+      server: oss-gz.cfprefer1.xyz,
+      port: 39809,
+      cipher: aes-256-gcm,
+      password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138,
+      udp: true,
+    }
+
 proxy-groups:
   - name: 🚀 节点选择
     type: select
@@ -76,9 +221,6 @@ proxy-groups:
       - DIRECT
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇸🇬 新加坡 01
-      - 🇸🇬 新加坡 02
-      - 🇸🇬 新加坡 03
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -87,9 +229,6 @@ proxy-groups:
     proxies:
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇸🇬 新加坡 01
-      - 🇸🇬 新加坡 02
-      - 🇸🇬 新加坡 03
   - name: 🌍 国外媒体
     type: select
     proxies:
