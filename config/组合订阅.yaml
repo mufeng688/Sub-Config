@@ -1,0 +1,3 @@
+- { name: '🇸🇬 Singapore 01', type: ss, server: tjsedht.cfprefer1.xyz, port: 14337, cipher: aes-256-gcm, password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138, udp: true }
+    - { name: '🇸🇬 Singapore 02', type: ss, server: tjsedht.cfprefer1.xyz, port: 43934, cipher: aes-256-gcm, password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138, udp: true }
+    - { name: '🇸🇬 Singapore 03', type: ss, server: tjsedht.cfprefer1.xyz, port: 10002, cipher: aes-256-gcm, password: bc8a9cbe-4e72-459a-850a-4acc3b0a1138, udp: true }
