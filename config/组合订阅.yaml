@@ -16,7 +16,7 @@ dns:
     - tls://dns.google:853
 proxies:
   - {
-      name: "🇺🇸 United States 自建",
+      name: 🇺🇸 United States 自建,
       server: hy.xymhh.eu.org,
       port: 31837,
       client-fingerprint: chrome,
@@ -29,7 +29,7 @@ proxies:
       udp: true,
     }
   - {
-      name: "🇭🇰 Hong Kong 自建",
+      name: 🇭🇰 Hong Kong 自建,
       server: hy2.xymhh.eu.org,
       port: 25122,
       client-fingerprint: chrome,
@@ -37,19 +37,6 @@ proxies:
       password: b0b5153c-f1ab-4041-898a-0beaa28aa87f,
       auth: b0b5153c-f1ab-4041-898a-0beaa28aa87f,
       sni: hy2.xymhh.eu.org,
-      skip-cert-verify: false,
-      alpn: [h3],
-      udp: true,
-    }
-  - {
-      name: "🇸🇬 Singapore 自建",
-      server: hy3.xymhh.eu.org,
-      port: 23170,
-      client-fingerprint: chrome,
-      type: hysteria2,
-      password: a9b08f12-dd73-47c5-8b7e-bc8f86c1c84d,
-      auth: a9b08f12-dd73-47c5-8b7e-bc8f86c1c84d,
-      sni: hy3.xymhh.eu.org,
       skip-cert-verify: false,
       alpn: [h3],
       udp: true,
@@ -234,7 +221,6 @@ proxy-groups:
       - DIRECT
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇸🇬 Singapore 自建
       - 🇯🇵 Japan 01
       - 🇸🇬 Singapore 01
       - 🇨🇳 Taiwan 01
@@ -263,7 +249,6 @@ proxy-groups:
     proxies:
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇸🇬 Singapore 自建
       - 🇯🇵 Japan 01
       - 🇸🇬 Singapore 01
       - 🇨🇳 Taiwan 01
@@ -291,7 +276,6 @@ proxy-groups:
       - 🎯 全球直连
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇸🇬 Singapore 自建
       - 🇯🇵 Japan 01
       - 🇸🇬 Singapore 01
       - 🇨🇳 Taiwan 01
@@ -319,7 +303,6 @@ proxy-groups:
       - 🎯 全球直连
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇸🇬 Singapore 自建
       - 🇯🇵 Japan 01
       - 🇸🇬 Singapore 01
       - 🇨🇳 Taiwan 01
@@ -346,7 +329,6 @@ proxy-groups:
       - 🎯 全球直连
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇸🇬 Singapore 自建
       - 🇯🇵 Japan 01
       - 🇸🇬 Singapore 01
       - 🇨🇳 Taiwan 01
@@ -373,7 +355,6 @@ proxy-groups:
       - 🚀 节点选择
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇸🇬 Singapore 自建
       - 🇯🇵 Japan 01
       - 🇸🇬 Singapore 01
       - 🇨🇳 Taiwan 01
@@ -400,7 +381,6 @@ proxy-groups:
       - 🎯 全球直连
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇸🇬 Singapore 自建
       - 🇯🇵 Japan 01
       - 🇸🇬 Singapore 01
       - 🇨🇳 Taiwan 01
@@ -428,7 +408,6 @@ proxy-groups:
       - ♻️ 自动选择
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇸🇬 Singapore 自建
       - 🇯🇵 Japan 01
       - 🇸🇬 Singapore 01
       - 🇨🇳 Taiwan 01
@@ -472,7 +451,6 @@ proxy-groups:
       - ♻️ 自动选择
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇸🇬 Singapore 自建
       - 🇯🇵 Japan 01
       - 🇸🇬 Singapore 01
       - 🇨🇳 Taiwan 01
