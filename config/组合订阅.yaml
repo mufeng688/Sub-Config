@@ -51,9 +51,10 @@ proxies:
       client-fingerprint: chrome,
       servername: yahoo.com,
       network: tcp,
-      reality-opts: ,
-      public-key: UMZob_Sp2KsjkpaYE9E2wI5Tvvo_4HExv__WuvbwuBs,
-      short-id: a6,
+      reality-opts: {
+        public-key: UMZob_Sp2KsjkpaYE9E2wI5Tvvo_4HExv__WuvbwuBs,
+        short-id: a6,
+        }
       tfo: false,
       skip-cert-verify: false,
     }
