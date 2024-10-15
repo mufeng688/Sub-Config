@@ -41,6 +41,19 @@ proxies:
       alpn: [h3],
       udp: true,
     }
+    - {
+    name: 🇭🇰 Hong Kong 2 自建,
+    server: hy3.xymhh.eu.org,
+    port: 25122,
+    client-fingerprint: chrome,
+    type: hysteria2,
+    password: a98fddbe-2cc7-4a6a-9e1b-d0a4638d9f1a,
+    auth: a98fddbe-2cc7-4a6a-9e1b-d0a4638d9f1a,
+    sni: hy3.xymhh.eu.org,
+    skip-cert-verify: false,
+    alpn: [h3],
+    udp: true,
+  }
 proxy-groups:
   - name: 🚀 节点选择
     type: select
@@ -49,6 +62,7 @@ proxy-groups:
       - DIRECT
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
+      - 🇭🇰 Hong Kong 2 自建
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -57,6 +71,7 @@ proxy-groups:
     proxies:
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
+      - 🇭🇰 Hong Kong 2 自建
   - name: 🌍 国外媒体
     type: select
     proxies:
@@ -65,6 +80,7 @@ proxy-groups:
       - 🎯 全球直连
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
+      - 🇭🇰 Hong Kong 2 自建
   - name: 💬 OpenAi
     type: select
     proxies:
@@ -73,6 +89,7 @@ proxy-groups:
       - 🎯 全球直连
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
+      - 🇭🇰 Hong Kong 2 自建
   - name: 📲 电报信息
     type: select
     proxies:
@@ -80,6 +97,7 @@ proxy-groups:
       - 🎯 全球直连
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
+      - 🇭🇰 Hong Kong 2 自建
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
@@ -87,6 +105,7 @@ proxy-groups:
       - 🚀 节点选择
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
+      - 🇭🇰 Hong Kong 2 自建
   - name: 🍎 苹果服务
     type: select
     proxies:
@@ -94,6 +113,7 @@ proxy-groups:
       - 🎯 全球直连
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
+      - 🇭🇰 Hong Kong 2 自建
   - name: 📢 谷歌FCM
     type: select
     proxies:
@@ -102,6 +122,7 @@ proxy-groups:
       - ♻️ 自动选择
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
+      - 🇭🇰 Hong Kong 2 自建
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -126,6 +147,7 @@ proxy-groups:
       - ♻️ 自动选择
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
+      - 🇭🇰 Hong Kong 2 自建
 rules:
   - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连
   - DOMAIN-SUFFIX,ip6-localhost,🎯 全球直连
