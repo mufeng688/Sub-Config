@@ -42,21 +42,18 @@ proxies:
       udp: true,
     }
   - {
-      name: 🇭🇰 Hong Kong2 自建,
-      type: vless,
-      server: xui.xymhh.eu.org,
-      port: 47803,
-      uuid: 75137307-e8c3-4532-b29a-2f7037659c86,
-      tls: true,
-      client-fingerprint: chrome,
-      servername: yahoo.com,
-      network: tcp,
-      reality-opts: {
-        public-key: UMZob_Sp2KsjkpaYE9E2wI5Tvvo_4HExv__WuvbwuBs,
-        short-id: a6,
-        }
-      tfo: false,
-      skip-cert-verify: false,
+      name: 🇭🇰 Hong Kong-2 自建, 
+      server: xui.xymhh.eu.org, 
+      port: 47803, 
+      reality-opts: {public-key: UMZob_Sp2KsjkpaYE9E2wI5Tvvo_4HExv__WuvbwuBs, short-id: a6}, 
+      client-fingerprint: chrome, 
+      type: vless, 
+      uuid: 75137307-e8c3-4532-b29a-2f7037659c86, 
+      tls: true, 
+      tfo: false, 
+      skip-cert-verify: false, 
+      servername: yahoo.com, 
+      network: tcp
     }
 proxy-groups:
   - name: 🚀 节点选择
