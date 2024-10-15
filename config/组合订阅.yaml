@@ -51,7 +51,7 @@ proxies:
       client-fingerprint: chrome,
       servername: yahoo.com,
       network: tcp,
-      reality-opts:,
+      reality-opts: ,
       public-key: UMZob_Sp2KsjkpaYE9E2wI5Tvvo_4HExv__WuvbwuBs,
       short-id: a6,
       tfo: false,
@@ -66,7 +66,6 @@ proxy-groups:
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
       - 🇭🇰 Hong Kong2 自建
-
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
