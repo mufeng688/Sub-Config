@@ -42,18 +42,18 @@ proxies:
       udp: true,
     }
   - {
-  name: 🇭🇰 Hong Kong 2 自建,
-  server: hy3.xymhh.eu.org,
-  port: 22878,
-  client-fingerprint: chrome,
-  type: hysteria2,
-  password: a98fddbe-2cc7-4a6a-9e1b-d0a4638d9f1a,
-  auth: a98fddbe-2cc7-4a6a-9e1b-d0a4638d9f1a,
-  sni: hy3.xymhh.eu.org,
-  skip-cert-verify: false,
-  alpn: [h3],
-  udp: true,
-}
+      name: 🇭🇰 Hong Kong 2 自建,
+      server: hy3.xymhh.eu.org,
+      port: 22878,
+      client-fingerprint: chrome,
+      type: hysteria2,
+      password: a98fddbe-2cc7-4a6a-9e1b-d0a4638d9f1a,
+      auth: a98fddbe-2cc7-4a6a-9e1b-d0a4638d9f1a,
+      sni: hy3.xymhh.eu.org,
+      skip-cert-verify: false,
+      alpn: [h3],
+      udp: true,
+    }
 proxy-groups:
   - name: 🚀 节点选择
     type: select
