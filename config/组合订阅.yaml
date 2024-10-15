@@ -42,7 +42,7 @@ proxies:
       udp: true,
     }
   - {
-      name: 🇭🇰 Hong Kong-2 自建, 
+      name: 🇭🇰 Hong Kong2 自建, 
       server: xui.xymhh.eu.org, 
       port: 47803, 
       reality-opts: {public-key: UMZob_Sp2KsjkpaYE9E2wI5Tvvo_4HExv__WuvbwuBs, short-id: a6}, 
