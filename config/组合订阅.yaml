@@ -42,18 +42,18 @@ proxies:
       udp: true,
     }
   - {
-      name: 🇭🇰 Hong Kong2 自建, 
-      server: xui.xymhh.eu.org, 
-      port: 47803, 
-      reality-opts: {public-key: UMZob_Sp2KsjkpaYE9E2wI5Tvvo_4HExv__WuvbwuBs, short-id: a6}, 
-      client-fingerprint: chrome, 
-      type: vless, 
-      uuid: 75137307-e8c3-4532-b29a-2f7037659c86, 
-      tls: true, 
-      tfo: false, 
-      skip-cert-verify: false, 
-      servername: yahoo.com, 
-      network: tcp
+      name: 🇭🇰 Hong Kong2 自建,
+      server: hy3.xymhh.eu.org,
+      port: 33057,
+      ports: 30000-31000,
+      client-fingerprint: chrome,
+      type: hysteria2,
+      password: 4d3cb85f-d230-4eb7-ab4d-23be752634f4,
+      auth: 4d3cb85f-d230-4eb7-ab4d-23be752634f4,
+      sni: hy3.xymhh.eu.org,
+      skip-cert-verify: false,
+      alpn: [h3],
+      udp: true,
     }
 proxy-groups:
   - name: 🚀 节点选择
