@@ -1,4 +1,5 @@
 prepend:
+  - 'DOMAIN-KEYWORD,epicgames,🚀 节点选择'
   - 'DOMAIN,api.steampowered.com,🎯 全球直连'
   - 'DOMAIN-SUFFIX,cm.steampowered.com,🎯 全球直连'
   - 'DOMAIN-SUFFIX,steamserver.net,🎯 全球直连'
