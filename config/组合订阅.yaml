@@ -45,7 +45,6 @@ proxies:
       name: 🇭🇰 Hong Kong2 自建,
       server: hy3.xymhh.eu.org,
       port: 33057,
-      ports: 30000-31000,
       client-fingerprint: chrome,
       type: hysteria2,
       password: 4d3cb85f-d230-4eb7-ab4d-23be752634f4,
