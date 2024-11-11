@@ -30,45 +30,18 @@ proxies:
     }
   - {
       name: 🇭🇰 Hong Kong 自建,
-      server: hy2.xymhh.eu.org,
-      port: 25122,
+      server: hy3.xymhh.eu.org,
+      port: 33057,
       client-fingerprint: chrome,
       type: hysteria2,
-      password: b0b5153c-f1ab-4041-898a-0beaa28aa87f,
-      auth: b0b5153c-f1ab-4041-898a-0beaa28aa87f,
-      sni: hy2.xymhh.eu.org,
+      password: 4d3cb85f-d230-4eb7-ab4d-23be752634f4,
+      auth: 4d3cb85f-d230-4eb7-ab4d-23be752634f4,
+      sni: hy3.xymhh.eu.org,
       skip-cert-verify: false,
       alpn: [h3],
       udp: true,
     }
-  - {
-      name: 🇭🇰 Hong Kong2 自建, 
-      server: xui.xymhh.eu.org, 
-      port: 47803, 
-      reality-opts: {public-key: UMZob_Sp2KsjkpaYE9E2wI5Tvvo_4HExv__WuvbwuBs, short-id: a6}, 
-      client-fingerprint: chrome, 
-      type: vless, 
-      uuid: 75137307-e8c3-4532-b29a-2f7037659c86, 
-      tls: true, 
-      tfo: false, 
-      skip-cert-verify: false, 
-      servername: yahoo.com, 
-      network: tcp
-    }
-  - {
-      name: 🇭🇰 Hong Kong3 自建, 
-      server: xui.xymhh.eu.org, 
-      port: 47803, 
-      reality-opts: {public-key: DTdYdJVQWIQzEX3JLdfIYtQGmFIlH5oW3YWu9tvWpHI, short-id: 4d1c90e4}, 
-      client-fingerprint: chrome, 
-      type: vless, 
-      uuid: e506d9b0-a75f-4794-8166-c0c4f1cbb063, 
-      tls: true, 
-      tfo: false, 
-      skip-cert-verify: false, 
-      servername: www.xymhh.eu.org, 
-      network: tcp
-    }
+
 proxy-groups:
   - name: 🚀 节点选择
     type: select
@@ -77,7 +50,6 @@ proxy-groups:
       - DIRECT
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇭🇰 Hong Kong2 自建
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -86,7 +58,6 @@ proxy-groups:
     proxies:
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇭🇰 Hong Kong2 自建
   - name: 🌍 国外媒体
     type: select
     proxies:
@@ -95,7 +66,6 @@ proxy-groups:
       - 🎯 全球直连
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇭🇰 Hong Kong2 自建
   - name: 💬 OpenAi
     type: select
     proxies:
@@ -104,7 +74,6 @@ proxy-groups:
       - 🎯 全球直连
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇭🇰 Hong Kong2 自建
   - name: 📲 电报信息
     type: select
     proxies:
@@ -112,7 +81,6 @@ proxy-groups:
       - 🎯 全球直连
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇭🇰 Hong Kong2 自建
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
@@ -120,7 +88,6 @@ proxy-groups:
       - 🚀 节点选择
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇭🇰 Hong Kong2 自建
   - name: 🍎 苹果服务
     type: select
     proxies:
@@ -128,7 +95,6 @@ proxy-groups:
       - 🎯 全球直连
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇭🇰 Hong Kong2 自建
   - name: 📢 谷歌FCM
     type: select
     proxies:
@@ -137,7 +103,6 @@ proxy-groups:
       - ♻️ 自动选择
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇭🇰 Hong Kong2 自建
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -162,7 +127,6 @@ proxy-groups:
       - ♻️ 自动选择
       - 🇺🇸 United States 自建
       - 🇭🇰 Hong Kong 自建
-      - 🇭🇰 Hong Kong2 自建
 rules:
   - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连
   - DOMAIN-SUFFIX,ip6-localhost,🎯 全球直连
