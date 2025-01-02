@@ -1,0 +1,12 @@
+# NAME: DiyProxy
+# AUTHOR: xymhh
+# REPO: https://github.com/mufeng688/Sub-Config
+# UPDATED: 2025-01-02
+payload:
+  - DOMAIN-SUFFIX,imgur.com
+  - DOMAIN-SUFFIX,nodeseek.com
+  - DOMAIN-SUFFIX,12345.al
+  - DOMAIN-SUFFIX,acaisbest.com
+  - DOMAIN-KEYWORD,emby
+  - DOMAIN-KEYWORD,zox
+  - DOMAIN-KEYWORD,misakaf
