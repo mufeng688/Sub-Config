@@ -56,8 +56,8 @@ rule-providers:
 # 分流Policy 
 rules:
   - RULE-SET,AdBlock,AdBlock
-  - RULE-SET,DiyDirect,额外直连
-  - RULE-SET,DiyProxy,额外代理
+  - RULE-SET,DiyDirect,DIRECT
+  - RULE-SET,DiyProxy,全球加速
   - RULE-SET,OpenAi,OpenAi
   - RULE-SET,BiliBili,哔哩哔哩
   - RULE-SET,Bahamut,全球加速
