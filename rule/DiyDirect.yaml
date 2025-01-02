@@ -68,11 +68,7 @@ payload:
   - DOMAIN-SUFFIX,msftconnecttest.com
   - DOMAIN-SUFFIX,msftncsi.com
 
-<<<<<<< HEAD
   # 其它
-=======
-  # 其它 
->>>>>>> 449a5daf2072848eb0ef5aebfcada478bc9d1672
   - DOMAIN-KEYWORD,lzcdn
   - DOMAIN-KEYWORD,cdnlz
   - DOMAIN-KEYWORD,lz-cdn
