@@ -4,5 +4,7 @@
 # UPDATED: 2025-01-02
 payload:
   - DOMAIN-SUFFIX,imgur.com
-  - DOMAIN-SUFFIX,agocftunel.com
-  - DOMAIN-SUFFIX,argotunnel.com
+  - DOMAIN-SUFFIX,region1.argotunnel.com
+  - DOMAIN-SUFFIX,region2.argotunnel.com
+  - DOMAIN-SUFFIX,region1.v2.argotunnel.com
+  - DOMAIN-SUFFIX,region2.v2.argotunnel.com
