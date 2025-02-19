@@ -1,0 +1,9 @@
+# NAME: DiyLan
+# AUTHOR: xymhh
+# REPO: https://github.com/mufeng688/Sub-Config
+# UPDATED: 2025-02-19
+
+payload:
+  # 内网直连
+  - IP-CIDR,192.168.200.0/24
+  - IP-CIDR,10.14.14.0/24
