@@ -1,13 +1,13 @@
 proxy-groups:
-  - {name: 自动选择, type: url-test, include-all: true, interval: 600, tolerance: 50,  icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png }
+  - {name: 自动选择, type: select, include-all: true, icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png }
   - {name: 手动切换, type: select, include-all: true, icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png }
   - {name: 全球加速, type: select, proxies: [手动切换, DIRECT, 自动选择], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
   - {name: 分流解锁, type: select, proxies: [手动切换, DIRECT, 自动选择], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Available.png }
   - {name: 哔哩哔哩, type: select, proxies: [手动切换, DIRECT, 自动选择], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/bilibili.png }
   - {name: Emby专用, type: select, include-all: true, icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
-  - {name: OpenAi,   type: select, proxies: [手动切换, DIRECT, 自动选择], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
+  - {name: OpenAi,  type: select, proxies: [手动切换, DIRECT, 自动选择], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
   - {name: 游戏平台, type: select, proxies: [手动切换, DIRECT, 自动选择], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
-  - {name: AdBlock,  type: select, proxies: [REJECT, DIRECT], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Adblock.png }
+  - {name: AdBlock, type: select, proxies: [REJECT, DIRECT], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Adblock.png }
   - {name: 兜底分流, type: select, proxies: [手动切换, DIRECT, 自动选择], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Final.png }
 
 rule-providers:
