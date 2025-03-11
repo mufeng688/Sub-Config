@@ -68,6 +68,9 @@ payload:
   - DOMAIN-SUFFIX,msftconnecttest.com
   - DOMAIN-SUFFIX,msftncsi.com
 
+  # xui面板
+  - DOMAIN-SUFFIX,by.xymhh.eu.org
+
   # 其它
   - DOMAIN-KEYWORD,lzcdn
   - DOMAIN-KEYWORD,cdnlz
@@ -77,4 +80,3 @@ payload:
   - DOMAIN-KEYWORD,rrcdnbf
   - DOMAIN-KEYWORD,fanwantv
   - DOMAIN-KEYWORD,nbtvjx
-  
