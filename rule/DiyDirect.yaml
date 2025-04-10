@@ -70,6 +70,7 @@ payload:
 
   # xui面板
   - DOMAIN-SUFFIX,by.xymhh.eu.org
+  - DOMAIN-SUFFIX,xymhh.vip
 
   # 其它
   - DOMAIN-KEYWORD,lzcdn
