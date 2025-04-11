@@ -82,6 +82,5 @@ payload:
   - DOMAIN-KEYWORD,nbtvjx
 
   # tailscale 组网
-  - DOMAIN-SUFFIX,log.tailscale.io
-  - DOMAIN-SUFFIX,controlplane.tailscale.com
+  - DOMAIN-KEYWORD,tailscale
   - DOMAIN-SUFFIX,xymhh.vip
