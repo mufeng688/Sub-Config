@@ -80,3 +80,8 @@ payload:
   - DOMAIN-KEYWORD,rrcdnbf
   - DOMAIN-KEYWORD,fanwantv
   - DOMAIN-KEYWORD,nbtvjx
+
+  # tailscale 组网
+  - DOMAIN-SUFFIX,log.tailscale.io
+  - DOMAIN-SUFFIX,controlplane.tailscale.com
+  - DOMAIN-SUFFIX,xymhh.vip
