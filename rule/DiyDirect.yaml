@@ -84,3 +84,6 @@ payload:
   # tailscale 组网
   - DOMAIN-KEYWORD,tailscale
   - DOMAIN-SUFFIX,xymhh.vip
+
+  # py steam游戏
+  - DOMAIN-SUFFIX,eccdnx.com
