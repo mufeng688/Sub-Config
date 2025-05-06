@@ -1,6 +1,6 @@
 {
     "log": {
-        "level": "info"
+        "level": "error"
     },
     "inbounds": [
         {
@@ -65,6 +65,35 @@
                 "certificate_path": "/etc/acme/hy.xymhh.eu.org.crt",
                 "key_path": "/etc/acme/hy.xymhh.eu.org.key"
             }
+        },
+        {
+            "type": "vless",
+            "tag": "VLESSReality",
+            "listen": "::",
+            "listen_port": 50013,
+            "users": [
+                {
+                    "name": "user4-vless",
+                    "uuid": "ff87eacd-6b46-45a4-b573-54547b08ce9e",
+                    "flow": "xtls-rprx-vision"
+                }
+            ],
+            "tls": {
+                "enabled": true,
+                "server_name": "www.swift.com",
+                "reality": {
+                    "enabled": true,
+                    "handshake": {
+                        "server": "www.swift.com",
+                        "server_port": 443
+                    },
+                    "private_key": "KCHmlnjWy5AhpmLY_1XEg1YbqKpHc98zErHwdvdc13I",
+                    "short_id": [
+                        "",
+                        "6ba85179e30d4fc2"
+                    ]
+                }
+            }
         }
     ],
     "outbounds": [
@@ -110,6 +139,12 @@
                     "hy2-in-3"
                 ],
                 "outbound": "socks-out-2"
+            },
+            {
+                "inbound": [
+                    "VLESSReality"
+                ],
+                "outbound": "direct"
             }
         ]
     }

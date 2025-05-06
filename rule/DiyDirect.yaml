@@ -87,3 +87,6 @@ payload:
 
   # py steam游戏
   - DOMAIN-SUFFIX,eccdnx.com
+
+  # cf
+  - DOMAIN-SUFFIX,cfd-features.argotunnel.com
