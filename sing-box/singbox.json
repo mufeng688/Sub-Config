@@ -118,6 +118,12 @@
             "version": "5",
             "username": "xymhh",
             "password": "xymhh"
+        },
+        {
+            "type": "http",
+            "tag": "http-out",
+            "server": "127.0.0.1",
+            "server_port": 58080
         }
     ],
     "route": {
@@ -144,7 +150,7 @@
                 "inbound": [
                     "VLESSReality"
                 ],
-                "outbound": "direct"
+                "outbound": "http-out"
             }
         ]
     }
