@@ -90,3 +90,6 @@ payload:
 
   # cf
   - DOMAIN-SUFFIX,cfd-features.argotunnel.com
+
+  # 小说
+  - DOMAIN-SUFFIX,fanqxsw.com
