@@ -93,3 +93,6 @@ payload:
 
   # 小说
   - DOMAIN-SUFFIX,fanqxsw.com
+
+  # tt语言
+  - DOMAIN-SUFFIX,52tt.com
