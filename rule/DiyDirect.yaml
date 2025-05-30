@@ -96,3 +96,6 @@ payload:
 
   # tt语言
   - DOMAIN-SUFFIX,52tt.com
+
+  # epic
+  - DOMAIN-SUFFIX,epicgames.com
