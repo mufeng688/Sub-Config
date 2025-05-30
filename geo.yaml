@@ -1,0 +1,189 @@
+# ======================== 代理组 (Proxy Groups) ========================
+# 这里定义了流量最终会导向的出口组。
+# 名称尽量简洁明了，方便规则引用。
+proxy-groups:
+  # 自动选择组：根据测速结果（url-test）或自动切换（fallback）从所有代理节点中选择最佳。
+  # 推荐使用 url-test 类型，Clash 会定期测试列表中所有代理的延迟，并自动选择最低延迟的。
+  - {name: 自动选择, type: url-test, url: "http://www.gstatic.com/generate_204", interval: 300, include-all: true, icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png }
+
+  # 手动切换组：用户可以手动从所有代理节点中选择一个。
+  - {name: 手动切换, type: select, include-all: true, icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png }
+
+  # >>> 通用代理出口 (PROXY) <<<
+  # 所有需要走代理的流量都指向这个组，它会从 '自动选择' 或 '手动切换' 中获取代理。
+  # 如果你希望代理组能够自动选择所有节点中最佳的，将 proxies 列表填充为你的实际节点名称，
+  # 例如：proxies: ["美国节点A", "香港节点B", "日本节点C"]
+  - {name: PROXY, type: select, proxies: [自动选择, 手动切换], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
+
+  # >>> 特殊代理出口 (PROXY-SPECIAL) <<<
+  # 所有特殊流量都指向这个组，它会从 '自动选择' 或 '手动切换' 中获取代理。
+  # 这里的 proxies 列表填充为你的实际节点名称，例如：proxies: ["美国节点A", "香港节点B", "日本节点C"]
+  - {name: PROXY-SPECIAL, type: select, include-all: true, icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
+
+  # 广告拦截组：流量被拒绝。
+  # 这里的 AdBlock 组只提供 REJECT 选项。如果你希望某些广告直连，可以添加 DIRECT。
+  - {name: AdBlock, type: select, proxies: [REJECT], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Adblock.png }
+
+  # 兜底分流组：处理所有未被其他规则匹配的流量。
+  # 允许用户选择代理、直连或自动选择。
+  - {name: 兜底分流, type: select, proxies: [PROXY, DIRECT], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Final.png }
+
+  # ======================== 后期扩展示例：特定服务代理组 ========================
+  # 如果你有特定服务（如流媒体、游戏、Emby 等）需要走特定区域或特定优化过的代理节点，
+  # 你可以在这里定义专门的代理组。
+  # 例如：
+  # - {name: Emby专用, type: select, proxies: ["香港节点B", PROXY], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
+  # - {name: 游戏加速, type: select, proxies: ["日本节点C", PROXY], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
+  # 注意：这里的 proxies 列表应是你在 'proxies:' 部分定义的具体节点名称，而不是 include-all。
+
+# ======================== 规则提供者 (Rule Providers) ========================
+# 仅当内置 GEOSITE/GEOIP 不足，或需要使用 MetaCubeX 等特定维护的规则集时才定义。
+# 大多数 GEOSITE/GEOIP 规则（如 google, youtube, private, CN 等）Clash 内置的 dat 文件中已有。
+# 这里的 cn 规则来自 MetaCubeX，通常更细致。
+rule-providers:
+  cn-domain:
+    behavior: domain
+    interval: 86400 # 24小时更新一次
+    path: ./provider/rule-set/cn_domain.yaml
+    type: http
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.yaml"
+  
+  # 国外 AI 服务
+  # 注意：format: mrs 要求 Clash.Meta 或 Clash Premium 内核
+  ai-chat-!cn:
+    type: http
+    interval: 600
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs"
+
+  # fake-ip-filter
+  fake-ip-filter:
+    type: http
+    behavior: domain
+    format: text
+    interval: 86400
+    url: https://cdn.jsdelivr.net/gh/juewuy/ShellCrash@dev/public/fake_ip_filter.list
+    path: ./ruleset/fake_ip_filter.list
+
+  
+  # 后期扩展示例：如果你想使用 MetaCubeX 的 GFW 列表，可以这样定义：
+  # gfw-domain:
+  #   behavior: domain
+  #   interval: 86400
+  #   path: ./provider/rule-set/gfw_domain.yaml
+  #   type: http
+  #   url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.yaml"
+  
+  # 后期扩展示例：如果你有自定义的直连或代理域名列表，可以这样定义：
+  custom-direct:
+    behavior: classical
+    interval: 86400`
+    path: ./provider/rule-set/custom_direct.yaml
+    type: http
+    format: yaml
+    url: "https://ghfast.top/https://raw.githubusercontent.com/mufeng688/Sub-Config/refs/heads/main/rule/DiyDirect.yaml" # 例如：raw.githubusercontent.com/youruser/yourrepo/master/direct.yaml
+  # custom-proxy:
+  #   behavior: classical
+  #   interval: 86400
+  #   path: ./provider/rule-set/custom_proxy.yaml
+  #   type: http
+  #   url: "你的自定义代理规则URL" # 例如：raw.githubusercontent.com/youruser/yourrepo/master/proxy.yaml
+
+
+# ======================== 规则 (Rules) ========================
+# 规则匹配顺序非常重要，从上到下依次匹配，一旦匹配成功，后续规则不再生效。
+# 建议的规则顺序：
+# 1. 禁用/拒绝规则（广告、恶意网站）
+# 2. 本地网络/私有IP直连
+# 3. 国内流量直连（域名和IP）
+# 4. 国外特定服务（GFW列表、流媒体、特定应用等）走代理
+# 5. 通用地理位置分流
+# 6. 兜底规则
+
+rules:
+  # --- 第1组：高优先级拒绝/直连规则 (不依赖域名解析或优先处理) ---
+  # 广告拦截：匹配广告相关的域名，拒绝连接。
+  - GEOSITE,category-ads-all,AdBlock # 使用内置规则，指向 AdBlock 组（REJECT）
+
+  # 私有网络：确保私有IP地址（如局域网、路由器管理界面等）直连，不进行DNS解析以加快速度。
+  - GEOIP,private,DIRECT,no-resolve
+
+  # Loopback IP：本地环回地址直连，通常不需要显式定义，已被 private 涵盖，故删除冗余且错误的规则。
+  # - GEOIP,DIRECT,DIRECT,no-resolve # 此行已删除
+
+  # --- 第2组：中国大陆流量分流 ---
+  # 中国大陆 IP 地址：所有流量直连。
+  - GEOIP,CN,DIRECT
+
+  # 中国大陆常用域名：确保国内常用网站直连（使用 rule-provider 提供的 MetaCubeX cn 列表）。
+  - RULE-SET,cn-domain,DIRECT
+
+  # 后期扩展示例：自定义直连域名，优先级高于通用代理。
+  - RULE-SET,custom-direct,DIRECT
+
+  # --- 第3组：国外强制代理流量 (通常用于被墙或需要代理的服务) ---
+  # GFW 列表：明确被墙的网站，强制走代理。
+  # 注意：GEOSITE,gfw 也是 Clash 内置的，如果需要 MetaCubeX 精细列表，需要定义 rule-provider。
+  - GEOSITE,gfw,PROXY # 使用内置 GFW 规则，走 PROXY 组
+
+  # 热门国外服务：如 Google, YouTube, Twitter, Telegram, Netflix 等。
+  # 这些都是 Clash 内置的 GEOSITE 规则，无需 rule-provider。
+  - GEOSITE,google,PROXY
+  - GEOSITE,youtube,PROXY
+  - GEOSITE,twitter,PROXY
+  - GEOSITE,telegram,PROXY
+  - GEOSITE,netflix,PROXY
+  - GEOSITE,pixiv,PROXY
+  - GEOSITE,biliintl,PROXY # BiliBili 国际版
+
+  # 国外特定服务（非中国区学术）：
+  - GEOSITE,category-scholar-!cn,PROXY-SPECIAL
+  # 修正：ai-chat-no-cn 是一个 RULE-SET，不是 GEOSITE
+  - RULE-SET,ai-chat-!cn,PROXY-SPECIAL
+
+  # --- 第4组：境外服务中国区优化 (通过CDN等原因可直连) ---
+  # 微软中国区服务：
+  - GEOSITE,microsoft@cn,DIRECT
+  # 苹果中国区服务：
+  - GEOSITE,apple-cn,DIRECT
+  # OneDrive：
+  - GEOSITE,onedrive,DIRECT
+  # Steam 中国区服务：
+  - GEOSITE,steam@cn,DIRECT
+  # 中国区游戏分类：
+  - GEOSITE,category-games@cn,DIRECT
+
+  # --- 第5组：通用地理位置分流 ---
+  # 非中国大陆域名：所有非中国境内的域名都走代理。
+  # 此规则非常强大，通常放在所有特定规则之后。
+  - GEOSITE,geolocation-!cn,PROXY
+
+  # 非中国大陆 IP 地址：所有非中国境内的 IP 地址都走代理。
+  # GEOIP 规则应该在所有 GEOIP/GEOSITE 规则匹配完成后执行，或者放在非常靠前的位置。
+  # 这里的 GEOIP,!CN 是一个强规则，会捕获所有非中国IP。
+  # 确保它位于所有特定 IP 规则之后，或所有特定 GEOSITE 规则之后。
+  - GEOIP,!CN,PROXY # 如果你希望所有非中国IP都走代理
+
+  # 后期扩展示例：特定国家的 IP 地址走代理
+  # - GEOIP,JP,PROXY # 日本 IP 走代理
+  # - GEOIP,US,PROXY # 美国 IP 走代理
+
+  # --- 第6组：基于端口的规则 (通常放在所有 IP/域名规则之后) ---
+  # 如果你需要所有到特定端口的流量都代理，无论其域名或IP。
+  # 注意：这些规则会捕获所有目的地是这些端口的流量，优先级较低，会被上面的域名/IP规则覆盖。
+  # 如果要全局生效且优先级高，可以考虑放在所有 GEOSITE/GEOIP 规则之前。
+
+  # - DST-PORT,22,PROXY
+  # - DST-PORT,80,PROXY
+  # - DST-PORT,8080,PROXY
+  # - DST-PORT,443,PROXY
+  # - DST-PORT,8443,PROXY
+
+  # --- 第7组：兜底规则 (MUST BE LAST) ---
+  # MATCH：所有未被上述规则匹配的流量都交给 '兜底分流' 组处理。
+  - MATCH,兜底分流
+
+dns:
+  fake-ip-filter:
+    - 'rule-set:fake-ip-filter'
