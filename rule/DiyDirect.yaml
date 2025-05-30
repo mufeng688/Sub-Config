@@ -68,7 +68,9 @@ payload:
   - DOMAIN-SUFFIX,msftconnecttest.com
   - DOMAIN-SUFFIX,msftncsi.com
 
-  # xui面板
+  # ssh
+  - DOMAIN-SUFFIX,cw.xymhh.eu.org
+  - DOMAIN-SUFFIX,czy.xymhh.eu.org
   - DOMAIN-SUFFIX,by.xymhh.eu.org
 
   # 其它
