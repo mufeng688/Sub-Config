@@ -98,3 +98,6 @@ payload:
 
   # epic
   - DOMAIN-SUFFIX,epicgames.com
+
+  # frp
+  - IP-CIDR,8.218.104.0/22
