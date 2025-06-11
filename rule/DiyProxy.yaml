@@ -3,5 +3,6 @@
 # REPO: https://github.com/mufeng688/Sub-Config
 # UPDATED: 2025-01-02
 payload:
-  - DOMAIN-SUFFIX,imgur.com
-  - DOMAIN-SUFFIX,tailwindcss.cn
+  # Google商店
+  - DOMAIN-SUFFIX,services.googleapis.cn
+  - DOMAIN-SUFFIX,googleapis.cn

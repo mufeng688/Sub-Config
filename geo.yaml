@@ -78,17 +78,18 @@ rule-providers:
   # 后期扩展示例：如果你有自定义的直连或代理域名列表，可以这样定义：
   custom-direct:
     behavior: classical
-    interval: 86400`
+    interval: 86400
     path: ./provider/rule-set/custom_direct.yaml
     type: http
     format: yaml
     url: "https://ghfast.top/https://raw.githubusercontent.com/mufeng688/Sub-Config/refs/heads/main/rule/DiyDirect.yaml" # 例如：raw.githubusercontent.com/youruser/yourrepo/master/direct.yaml
-  # custom-proxy:
-  #   behavior: classical
-  #   interval: 86400
-  #   path: ./provider/rule-set/custom_proxy.yaml
-  #   type: http
-  #   url: "你的自定义代理规则URL" # 例如：raw.githubusercontent.com/youruser/yourrepo/master/proxy.yaml
+  custom-proxy:
+    behavior: classical
+    interval: 86400
+    path: ./provider/rule-set/custom_proxy.yaml
+    type: http
+    format: yaml
+    url: "https://ghfast.top/https://raw.githubusercontent.com/mufeng688/Sub-Config/refs/heads/main/rule/DiyProxy.yaml"
 
 
 # ======================== 规则 (Rules) ========================
@@ -112,15 +113,18 @@ rules:
   # Loopback IP：本地环回地址直连，通常不需要显式定义，已被 private 涵盖，故删除冗余且错误的规则。
   # - GEOIP,DIRECT,DIRECT,no-resolve # 此行已删除
 
+  # 后期扩展示例：自定义直连域名，优先级高于通用代理。
+  - RULE-SET,custom-direct,DIRECT
+
+  # 后期扩展示例：自定义代理域名，优先级高于通用代理。
+  - RULE-SET,custom-proxy,PROXY
+
   # --- 第2组：中国大陆流量分流 ---
   # 中国大陆 IP 地址：所有流量直连。
   - GEOIP,CN,DIRECT
 
   # 中国大陆常用域名：确保国内常用网站直连（使用 rule-provider 提供的 MetaCubeX cn 列表）。
   - RULE-SET,cn-domain,DIRECT
-
-  # 后期扩展示例：自定义直连域名，优先级高于通用代理。
-  - RULE-SET,custom-direct,DIRECT
 
   # --- 第3组：国外强制代理流量 (通常用于被墙或需要代理的服务) ---
   # GFW 列表：明确被墙的网站，强制走代理。
