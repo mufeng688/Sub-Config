@@ -1,38 +1,42 @@
-
 proxy-groups:
-  - name: "前置节点"
+  - name: "中转节点"
     type: select
     include-all: true
     exclude-filter: "落地"
-    icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png"
+    icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png"
 
-  - name: "落地节点"
+  - name: "手动切换"
     type: select
     include-all: true
     filter: "落地"
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png"
 
-  - name: "链式代理"
-    type: relay
-    proxies: ["前置节点", "落地节点"]
-    icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png"
-  
+  # 主策略组
   - name: PROXY
     type: select
-    proxies: 
-      - "链式代理"
-      - "前置节点"
-      - "落地节点"
+    proxies:
+      - "手动切换"
+      - "中转节点"
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png"
 
   - name: PROXY-SPECIAL
     type: select
     include-all: true
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png"
-  - { name: AdBlock, type: select, proxies: [REJECT], icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Adblock.png" }
-  - { name: 兜底分流, type: select, proxies: [PROXY, DIRECT], icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Final.png" }
+  
+  - name: AdBlock
+    type: select
+    proxies: [REJECT]
+    icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Adblock.png" 
+  
+  - name: 兜底分流
+    type: select
+    proxies: [PROXY, DIRECT]
+    icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Final.png" 
 
 
+
+# 2. 您的所有规则和 DNS 设置 (保持不变)
 rule-providers:
   cn-domain: { behavior: domain, interval: 86400, path: ./provider/rule-set/cn_domain.yaml, type: http, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.yaml" }
   ai-chat-!cn: { type: http, interval: 600, behavior: domain, format: mrs, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs" }
