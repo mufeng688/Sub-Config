@@ -45,8 +45,8 @@ proxy-groups:
 
 # 2. 您的所有规则和 DNS 设置 (保持不变)
 rule-providers:
-  cn-domain: { behavior: domain, interval: 86400, path: ./provider/rule-set/cn_domain.yaml, type: http, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.yaml" }
-  ai-chat-!cn: { type: http, interval: 600, behavior: domain, format: mrs, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs" }
+  cn-domain: { behavior: domain, interval: 86400, path: ./provider/rule-set/cn_domain.yaml, type: http, url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.yaml" }
+  ai-chat-!cn: { type: http, interval: 600, behavior: domain, format: mrs, url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs" }
   fake-ip-filter: { type: http, behavior: domain, format: text, interval: 86400, url: "https://cdn.jsdelivr.net/gh/juewuy/ShellCrash@dev/public/fake_ip_filter.list", path: ./ruleset/fake_ip_filter.list }
   custom-direct: { behavior: classical, interval: 86400, path: ./provider/rule-set/custom_direct.yaml, type: http, format: yaml, url: "https://ghfast.top/https://raw.githubusercontent.com/mufeng688/Sub-Config/refs/heads/main/rule/DiyDirect.yaml" }
   custom-proxy: { behavior: classical, interval: 86400, path: ./provider/rule-set/custom_proxy.yaml, type: http, format: yaml, url: "https://ghfast.top/https://raw.githubusercontent.com/mufeng688/Sub-Config/refs/heads/main/rule/DiyProxy.yaml" }
@@ -80,3 +80,9 @@ rules:
 dns:
   fake-ip-filter:
     - 'rule-set:fake-ip-filter'
+
+geox-url:
+  geoip: https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip-lite.dat
+  geosite: https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
+  mmdb: https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country-lite.mmdb
+  asn: https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/GeoLite2-ASN.mmdb
