@@ -1,4 +1,4 @@
-# 1. 代理订阅提供者 (Proxy Providers)
+# 代理订阅提供者 (Proxy Providers)
 proxy-providers:
   Providers: 
     type: http
@@ -10,7 +10,7 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       interval: 600
 
-# 2. 策略组 (Proxy Groups)
+# 策略组 (Proxy Groups)
 proxy-groups:
   - name: "中转节点"
     type: select
@@ -49,7 +49,7 @@ proxy-groups:
     proxies: [PROXY, DIRECT]
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Final.png"
 
-# 3. 规则提供者 (Rule Providers) - 无需改动
+# 规则提供者 (Rule Providers)
 rule-providers:
   cn-domain: { behavior: domain, interval: 86400, path: ./provider/rule-set/cn_domain.yaml, type: http, url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.yaml" }
   ai-chat-!cn: { type: http, interval: 600, behavior: domain, format: mrs, url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs" }
@@ -57,7 +57,7 @@ rule-providers:
   custom-direct: { behavior: classical, interval: 86400, path: ./provider/rule-set/custom_direct.yaml, type: http, format: yaml, url: "https://ghfast.top/https://raw.githubusercontent.com/mufeng688/Sub-Config/refs/heads/main/rule/DiyDirect.yaml" }
   custom-proxy: { behavior: classical, interval: 86400, path: ./provider/rule-set/custom_proxy.yaml, type: http, format: yaml, url: "https://ghfast.top/https://raw.githubusercontent.com/mufeng688/Sub-Config/refs/heads/main/rule/DiyProxy.yaml" }
 
-# 4. 规则 (Rules) - 无需改动
+# 规则 (Rules)
 rules:
   - GEOSITE,category-ads-all,AdBlock
   - GEOIP,private,DIRECT,no-resolve
@@ -84,13 +84,46 @@ rules:
   - GEOIP,!CN,PROXY
   - MATCH,兜底分流
 
-# 5. DNS 设置 - 无需改动
+# 通用配置
+mode: rule
+ipv6: false
+mixed-port: 7890
+allow-lan: true
+bind-address: '*'
+log-level: warning
+unified-delay: true
+find-process-mode: strict
+
+# DNS 设置
 dns:
+  enable: true
+  ipv6: false
+  prefer-h3: false
+  use-hosts: false
+  use-system-hosts: false
+  respect-rules: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
     - 'rule-set:fake-ip-filter'
+  default-nameserver:
+    - tls://223.5.5.5
+    - tls://119.29.29.29
+  nameserver:
+    - https://1.1.1.1/dns-query
+    - https://dns.google/dns-query
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+  direct-nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
 
 
 # 6. GEO 数据源 - 无需改动
+geodata-mode: true
+geo-auto-update: true
+geo-update-interval: 24
+geodata-loader: memconservative
 geox-url:
   geoip: https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip-lite.dat
   geosite: https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
