@@ -119,7 +119,7 @@ dns:
     - https://dns.alidns.com/dns-query
 
 
-# 6. GEO 数据源 - 无需改动
+# GEO 数据源
 geodata-mode: true
 geo-auto-update: true
 geo-update-interval: 24
