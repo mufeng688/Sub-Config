@@ -12,12 +12,12 @@ proxy-groups:
 
   - name: PROXY
     type: select
-    proxies: ["手动切换", "中转节点"]
+    proxies: ["手动切换", "自动选择"]
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png"
 
   - name: PROXY-SPECIAL
     type: select
-    use: ["Providers"]
+    proxies: ["手动切换", "自动选择"]
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png"
   
   - name: AdBlock
