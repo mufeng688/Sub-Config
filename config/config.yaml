@@ -34,6 +34,11 @@ proxy-groups:
     proxies: ["手动切换", "中转节点"]
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png"
 
+  - name: 游戏节点
+    type: select
+    use: ["Providers"]
+    icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png"
+
   - name: PROXY-SPECIAL
     type: select
     use: ["Providers"]
@@ -41,7 +46,7 @@ proxy-groups:
 
   - name: 游戏加速
     type: select
-    use: ["Providers"]
+    proxies: ["手动切换", "中转节点","游戏节点", "DIRECT"]
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png"
 
   - name: AdBlock
