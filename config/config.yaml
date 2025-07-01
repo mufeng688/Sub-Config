@@ -15,7 +15,7 @@ proxy-groups:
   - name: "中转节点"
     type: select
     use: ["Providers"]
-    exclude-filter: "落地|家宽" # 排除节点名包含"落地"的节点
+    exclude-filter: "落地|家宽|CN|公益" # 排除节点名包含"落地"的节点
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png"
 
   - name: "智能中转"
