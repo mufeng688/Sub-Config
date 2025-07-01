@@ -67,7 +67,7 @@ rule-providers:
 rules:
   - GEOSITE,category-ads-all,AdBlock
   - GEOIP,private,DIRECT,no-resolve
-  - RULE-SET,custom-gmaes,游戏加速
+  - RULE-SET,custom-games,游戏加速
   - RULE-SET,custom-proxy,PROXY
   - GEOIP,CN,DIRECT
   - RULE-SET,cn-domain,DIRECT
