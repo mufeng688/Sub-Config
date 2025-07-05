@@ -6,3 +6,5 @@ payload:
   # Google商店
   - DOMAIN-SUFFIX,services.googleapis.cn
   - DOMAIN-SUFFIX,googleapis.cn
+  # 游戏网站
+  - DOMAIN-SUFFIX,byrutgame.org
