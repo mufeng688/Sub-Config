@@ -1,6 +1,6 @@
 # 代理订阅提供者 (Proxy Providers)
 proxy-providers:
-  Providers: 
+  中转订阅: 
     type: http
     url: "" # 代理订阅链接
     interval: 3600 # 1小时自动更新一次节点
@@ -9,13 +9,30 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 600
+    override:
+      udp: true
+      additional-prefix: "✈️ | "
+
+  落地订阅:
+    type: http
+    url: "" # 代理订阅链接
+    interval: 3600 # 1小时自动更新一次节点
+    path: ./provider/proxy/land.yaml # 缓存文件路径
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 600
+    override:
+      udp: true
+      dialer-proxy: 智能中转
+      additional-prefix: "🏠 | "
 
 # 策略组 (Proxy Groups)
 proxy-groups:
   - name: "中转节点"
     type: select
-    use: ["Providers"]
-    exclude-filter: "落地|家宽|CN|公益" # 排除节点名包含"落地"的节点
+    include-all: true
+    filter: "✈️" # 保留
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png"
 
   - name: "智能中转"
@@ -23,31 +40,21 @@ proxy-groups:
     proxies: ["中转节点", "DIRECT"]
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Roundrobin.png"
 
-  - name: "手动切换"
+  - name: "落地节点"
     type: select
-    use: ["Providers"]
-    filter: "落地|家宽" # 只保留节点名包含"落地"的节点
+    include-all: true
+    filter: "🏠" # 保留
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png"
 
-  - name: PROXY
+  - name: 全球加速
     type: select
-    proxies: ["手动切换", "中转节点"]
+    proxies: ["中转节点", "落地节点", "DIRECT"]
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png"
 
-  - name: 游戏节点
+  - name: 特殊服务
     type: select
-    use: ["Providers"]
+    include-all: true
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png"
-
-  - name: PROXY-SPECIAL
-    type: select
-    use: ["Providers"]
-    icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png"
-
-  - name: 游戏加速
-    type: select
-    proxies: ["手动切换", "中转节点","游戏节点", "DIRECT"]
-    icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/SSID.png"
 
   - name: AdBlock
     type: select
@@ -56,7 +63,7 @@ proxy-groups:
   
   - name: 兜底分流
     type: select
-    proxies: [PROXY, DIRECT]
+    proxies: ["中转节点", "落地节点", "DIRECT"]
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Final.png"
 
 # 规则提供者 (Rule Providers)
@@ -72,28 +79,27 @@ rule-providers:
 rules:
   - GEOSITE,category-ads-all,AdBlock
   - GEOIP,private,DIRECT,no-resolve
-  - RULE-SET,custom-games,游戏加速
-  - RULE-SET,custom-proxy,PROXY
+  - RULE-SET,custom-proxy,全球加速
   - GEOIP,CN,DIRECT
   - RULE-SET,cn-domain,DIRECT
   - RULE-SET,custom-direct,DIRECT
-  - GEOSITE,gfw,PROXY
-  - GEOSITE,google,PROXY
-  - GEOSITE,youtube,PROXY
-  - GEOSITE,twitter,PROXY
-  - GEOSITE,telegram,PROXY
-  - GEOSITE,netflix,PROXY
-  - GEOSITE,pixiv,PROXY
-  - GEOSITE,biliintl,PROXY
-  - GEOSITE,category-scholar-!cn,PROXY-SPECIAL
-  - RULE-SET,ai-chat-!cn,PROXY-SPECIAL
+  - GEOSITE,gfw,全球加速
+  - GEOSITE,google,全球加速
+  - GEOSITE,youtube,全球加速
+  - GEOSITE,twitter,全球加速
+  - GEOSITE,telegram,全球加速
+  - GEOSITE,netflix,全球加速
+  - GEOSITE,pixiv,全球加速
+  - GEOSITE,biliintl,全球加速
+  - GEOSITE,category-scholar-!cn,特殊服务
+  - RULE-SET,ai-chat-!cn,特殊服务
   - GEOSITE,microsoft@cn,DIRECT
   - GEOSITE,apple-cn,DIRECT
   - GEOSITE,onedrive,DIRECT
   - GEOSITE,steam@cn,DIRECT
   - GEOSITE,category-games@cn,DIRECT
-  - GEOSITE,geolocation-!cn,PROXY
-  - GEOIP,!CN,PROXY
+  - GEOSITE,geolocation-!cn,全球加速
+  - GEOIP,!CN,全球加速
   - MATCH,兜底分流
 
 # 通用配置
