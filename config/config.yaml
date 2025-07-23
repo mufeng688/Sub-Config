@@ -115,10 +115,8 @@ find-process-mode: strict
 # DNS 设置
 dns:
   enable: true
+  listen: :53
   ipv6: false
-  prefer-h3: false
-  use-hosts: false
-  use-system-hosts: false
   respect-rules: true
   enhanced-mode: fake-ip
   fake-ip-filter-mode: blacklist
