@@ -8,3 +8,6 @@ payload:
   - DOMAIN-SUFFIX,googleapis.cn
   # 游戏网站
   - DOMAIN-SUFFIX,byrutgame.org
+  # cloudflare tunnel
+  - DOMAIN-SUFFIX,region1.v2.argotunnel.com
+  - DOMAIN-SUFFIX,region2.v2.argotunnel.com

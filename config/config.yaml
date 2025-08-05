@@ -79,7 +79,7 @@ rule-providers:
 rules:
   - GEOSITE,category-ads-all,AdBlock
   - GEOIP,private,DIRECT,no-resolve
-  - RULE-SET,custom-proxy,全球加速
+  - RULE-SET,custom-proxy,特殊服务
   - GEOIP,CN,DIRECT
   - RULE-SET,cn-domain,DIRECT
   - RULE-SET,custom-direct,DIRECT
