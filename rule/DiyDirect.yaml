@@ -101,3 +101,6 @@ payload:
 
   # frp
   - IP-CIDR,8.218.104.0/22
+
+  # ai 公益站
+  - DOMAIN-SUFFIX,elysia.h-e.top
