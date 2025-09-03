@@ -80,27 +80,28 @@ rules:
   - GEOSITE,category-ads-all,AdBlock
   - GEOIP,private,DIRECT,no-resolve
   - RULE-SET,custom-proxy,特殊服务
-  - GEOIP,CN,DIRECT
-  - RULE-SET,cn-domain,DIRECT
   - RULE-SET,custom-direct,DIRECT
-  - GEOSITE,gfw,全球加速
-  - GEOSITE,google,全球加速
-  - GEOSITE,youtube,全球加速
-  - GEOSITE,twitter,全球加速
-  - GEOSITE,telegram,全球加速
-  - GEOSITE,netflix,全球加速
-  - GEOSITE,pixiv,全球加速
-  - GEOSITE,biliintl,全球加速
-  - GEOSITE,category-scholar-!cn,特殊服务
   - RULE-SET,ai-chat-!cn,特殊服务
+  - GEOSITE,category-scholar-!cn,特殊服务
   - GEOSITE,microsoft@cn,DIRECT
   - GEOSITE,apple-cn,DIRECT
-  - GEOSITE,onedrive,DIRECT
   - GEOSITE,steam@cn,DIRECT
   - GEOSITE,category-games@cn,DIRECT
+  - GEOSITE,onedrive,DIRECT
+  - RULE-SET,cn-domain,DIRECT
+  - GEOIP,CN,DIRECT
+  - GEOSITE,gfw,全球加速
+  # - GEOSITE,google,全球加速
+  # - GEOSITE,youtube,全球加速
+  # - GEOSITE,twitter,全球加速
+  # - GEOSITE,telegram,全球加速
+  # - GEOSITE,netflix,全球加速
+  # - GEOSITE,pixiv,全球加速
+  # - GEOSITE,biliintl,全球加速
   - GEOSITE,geolocation-!cn,全球加速
   - GEOIP,!CN,全球加速
   - MATCH,兜底分流
+
 
 # 通用配置
 mode: rule
