@@ -81,8 +81,8 @@ rules:
   - GEOIP,private,DIRECT,no-resolve
   - RULE-SET,custom-proxy,特殊服务
   - RULE-SET,custom-direct,DIRECT
-  - RULE-SET,ai-chat-!cn,特殊服务
-  - GEOSITE,category-scholar-!cn,特殊服务
+  # - RULE-SET,ai-chat-!cn,特殊服务
+  # - GEOSITE,category-scholar-!cn,特殊服务
   - GEOSITE,microsoft@cn,DIRECT
   - GEOSITE,apple-cn,DIRECT
   - GEOSITE,steam@cn,DIRECT
