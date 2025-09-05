@@ -1,10 +1,13 @@
+# ----------------------------------------------------------------
 # 代理订阅提供者 (Proxy Providers)
+# ----------------------------------------------------------------
+# 用于从远程URL获取节点列表，并进行健康检查和参数覆写。
 proxy-providers:
-  中转订阅: 
+  中转订阅:
     type: http
-    url: "" # 代理订阅链接
-    interval: 3600 # 1小时自动更新一次节点
-    path: ./provider/proxy/my-airport.yaml # 缓存文件路径
+    url: ""
+    interval: 3600
+    path: ./provider/proxy/my-airport.yaml
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -12,12 +15,11 @@ proxy-providers:
     override:
       udp: true
       additional-prefix: "✈️ | "
-
   落地订阅:
     type: http
-    url: "" # 代理订阅链接
-    interval: 3600 # 1小时自动更新一次节点
-    path: ./provider/proxy/land.yaml # 缓存文件路径
+    url: ""
+    interval: 3600
+    path: ./provider/proxy/land.yaml
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -27,48 +29,53 @@ proxy-providers:
       dialer-proxy: 中转节点
       additional-prefix: "🏠 | "
 
+# ----------------------------------------------------------------
 # 策略组 (Proxy Groups)
+# ----------------------------------------------------------------
+# 定义流量的转发策略，如手动选择、自动测速、故障转移等。
 proxy-groups:
   - name: "中转节点"
     type: select
     include-all: true
-    filter: "✈️" # 保留
+    filter: "✈️"
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png"
-
   - name: "落地节点"
     type: select
     include-all: true
-    filter: "🏠" # 保留
+    filter: "🏠"
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png"
-
   - name: 全球加速
     type: select
     proxies: ["中转节点", "落地节点", "DIRECT"]
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png"
-
   - name: 特殊服务
     type: select
     include-all: true
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png"
-
   - name: AdBlock
     type: select
     proxies: [REJECT]
-    icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Adblock.png" 
-  
+    icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Adblock.png"
   - name: 兜底分流
     type: select
     proxies: ["中转节点", "落地节点", "DIRECT"]
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Final.png"
 
+# ----------------------------------------------------------------
 # 规则提供者 (Rule Providers)
+# ----------------------------------------------------------------
+# 用于从远程URL获取分流规则集。
 rule-providers:
   cn-domain: { behavior: domain, interval: 86400, path: ./provider/rule-set/cn_domain.yaml, type: http, url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.yaml" }
   custom-direct: { behavior: classical, interval: 86400, path: ./provider/rule-set/custom_direct.yaml, type: http, format: yaml, url: "https://ghfast.top/https://raw.githubusercontent.com/mufeng688/Sub-Config/refs/heads/main/rule/DiyDirect.yaml" }
   custom-proxy: { behavior: classical, interval: 86400, path: ./provider/rule-set/custom_proxy.yaml, type: http, format: yaml, url: "https://ghfast.top/https://raw.githubusercontent.com/mufeng688/Sub-Config/refs/heads/main/rule/DiyProxy.yaml" }
   fake-ip-filter: { type: http, behavior: domain, format: text, interval: 86400, url: "https://cdn.jsdelivr.net/gh/juewuy/ShellCrash@dev/public/fake_ip_filter.list", path: ./ruleset/fake_ip_filter.list }
 
+
+# ----------------------------------------------------------------
 # 规则 (Rules)
+# ----------------------------------------------------------------
+# Clash的核心，按顺序匹配流量，决定其走向哪个策略组。
 rules:
   - GEOSITE,category-ads-all,AdBlock
   - GEOIP,private,DIRECT,no-resolve
@@ -86,9 +93,16 @@ rules:
   - GEOIP,!CN,全球加速
   - MATCH,兜底分流
 
-# 通用配置
+# ----------------------------------------------------------------
+# 通用配置 (General)
+# ----------------------------------------------------------------
+# Clash的核心行为、端口、日志等基础设置。
 mode: rule
+port: 8080
+socks-port: 1080
+redir-port: 7891
 mixed-port: 7890
+tproxy-port: 7892
 allow-lan: true
 bind-address: "*"
 ipv6: false
@@ -104,14 +118,10 @@ profile:
   store-selected: true
   store-fake-ip: true
 
-# ui面板
-external-controller: 127.0.0.1:9090      # 改为本机访问
-secret: "xymhh"             # 添加面板密码
-external-ui: "./ui"                      # 修改面板保存位置
-external-ui-name: zashboard
-external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
-
-# 嗅探
+# ----------------------------------------------------------------
+# 流量嗅探 (Sniffer)
+# ----------------------------------------------------------------
+# 尝试识别流量的域名，即使请求是基于IP的，从而更准确地应用域名规则。
 sniffer:
   enable: true
   sniff:
@@ -123,20 +133,28 @@ sniffer:
     QUIC:
       ports: [443, 8443]
 
-# 入站  
+# ----------------------------------------------------------------
+# TUN 模式 (适用于 OpenWrt / 路由器环境)
+# ----------------------------------------------------------------
+# 创建一个虚拟网卡来接管系统所有TCP/UDP流量，实现真正的全局代理。
 tun:
-  enable: false
-  # system/gvisor/mixed
+  enable: true
   stack: mixed
   dns-hijack: ["any:53", "tcp://any:53"]
-  auto-route: true
-  auto-redirect: true
-  auto-detect-interface: true
+  # 在 OpenWrt 中，路由和重定向通常由iptables/nftables规则手动管理，故设为 false
+  auto-route: false
+  auto-redirect: false
+  auto-detect-interface: false
+  # 指定 TUN 虚拟网卡的名称
+  device: nikki
 
+# ----------------------------------------------------------------
 # DNS 设置
+# ----------------------------------------------------------------
+# Clash内置的DNS服务器，用于防污染和Fake-IP。
 dns:
   enable: true
-  listen: :53
+  listen: '[::]:1053'
   ipv6: false
   respect-rules: true
   enhanced-mode: fake-ip
@@ -153,14 +171,16 @@ dns:
     - 8.8.8.8
   nameserver-policy:
     geosite:cn:
-        - https://1.12.12.12/dns-query
-        - https://223.5.5.5/dns-query
+      - https://1.12.12.12/dns-query
+      - https://223.5.5.5/dns-query
   proxy-server-nameserver:
     - https://1.12.12.12/dns-query
     - https://223.5.5.5/dns-query
 
-
-# 6. GEO 数据源 - 无需改动
+# ----------------------------------------------------------------
+# GEO 数据源 (Geo Data)
+# ----------------------------------------------------------------
+# GEOIP 和 GEOSITE 规则数据库的设置。
 geodata-mode: true
 geo-auto-update: true
 geo-update-interval: 24
@@ -170,3 +190,20 @@ geox-url:
   geosite: https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
   mmdb: https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country-lite.mmdb
   asn: https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/GeoLite2-ASN.mmdb
+
+# ----------------------------------------------------------------
+# 外部控制与特定环境配置 (External Control & Environment)
+# ----------------------------------------------------------------
+# 主要用于 OpenWrt 环境下的 Web UI、API 访问和网络接口绑定。
+# 绑定的出口网络接口
+interface-name: br-lan
+# 网页控制面板 (Dashboard) 名称
+external-ui: ui
+# 网页控制面板资源文件地址
+external-ui-url: https://github.com/Zephyruso/zashboard/releases/latest/download/dist-cdn-fonts.zip
+# API 控制器监听地址和端口
+external-controller: '[::]:9090'
+# API 访问密钥
+secret: xymhh
+# 清空静态proxies，完全依赖proxy-providers
+proxies: null
