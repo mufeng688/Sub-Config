@@ -70,7 +70,7 @@ proxy-groups:
   - name: "中转节点"
     type: select
     include-all: true
-    filter: "✈️" # 保留
+    filter: "🎯" # 保留
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png"
 
   - name: "机场节点"
@@ -86,7 +86,8 @@ proxy-groups:
 
   - name: "特殊服务"
     type: select
-    proxies: ["前置节点", "落地节点", "中转节点", "机场节点", "DIRECT"]
+    include-all: true
+    filter: "🎯" # 保留
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Final.png"
 
   - name: "AdBlock"
