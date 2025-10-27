@@ -1,10 +1,10 @@
 # 代理订阅提供者 (Proxy Providers)
 proxy-providers:
-  中转订阅: 
+  前置订阅: 
     type: http
     url: "" # 代理订阅链接
     interval: 3600 # 1小时自动更新一次节点
-    path: ./provider/proxy/my-airport.yaml # 缓存文件路径
+    path: ./provider/proxy/prefix.yaml # 缓存文件路径
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -27,6 +27,19 @@ proxy-providers:
       dialer-proxy: 中转节点
       additional-prefix: "🏠 | "
 
+  中转订阅: 
+    type: http
+    url: "" # 代理订阅链接
+    interval: 3600 # 1小时自动更新一次节点
+    path: ./provider/proxy/transit.yaml # 缓存文件路径
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 600
+    override:
+      udp: true
+      additional-prefix: "✈️ | "
+
   机场订阅: 
     type: http
     url: "" # 代理订阅链接
@@ -42,7 +55,7 @@ proxy-providers:
 
 # 策略组 (Proxy Groups)
 proxy-groups:
-  - name: "中转节点"
+  - name: "前置节点"
     type: select
     include-all: true
     filter: "🚀" # 保留
@@ -54,43 +67,46 @@ proxy-groups:
     filter: "🏠" # 保留
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/China.png"
 
+  - name: "中转节点"
+    type: select
+    include-all: true
+    filter: "✈️" # 保留
+    icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png"
+
   - name: "机场节点"
     type: select
     include-all: true
     filter: "✈️" # 保留
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png"
 
-  - name: 全球加速
+  - name: "全球加速"
     type: select
-    proxies: ["中转节点", "落地节点", 机场节点, "DIRECT"]
+    proxies: ["前置节点", "落地节点", "中转节点", "机场节点", "DIRECT"]
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png"
 
-  - name: 特殊服务
+  - name: "特殊服务"
     type: select
-    include-all: true
-    filter: "🚀" # 保留
+    proxies: ["前置节点", "落地节点", "中转节点", "机场节点", "DIRECT"]
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Final.png"
 
-  - name: AdBlock
+  - name: "AdBlock"
     type: select
     proxies: [REJECT]
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Adblock.png" 
   
-  - name: 兜底分流
+  - name: "兜底分流"
     type: select
-    proxies: ["中转节点", "落地节点", 机场节点, "DIRECT"]
+    proxies: ["前置节点", "落地节点", "中转节点", "机场节点", "DIRECT"]
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Final.png"
 
-# ----------------------------------------------------------------
 # 规则提供者 (Rule Providers)
-# ----------------------------------------------------------------
-# 用于从远程URL获取分流规则集。
 rule-providers:
-  cn-domain: { behavior: domain, interval: 86400, path: ./provider/rule-set/cn_domain.yaml, type: http, url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.yaml" }
+  cn-domain: { behavior: domain, interval: 86400, path: ./provider/rule-set/cn_domain.yaml, format: yaml, type: http, url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.yaml" }
+  ai-chat-!cn: { behavior: domain, interval: 600,  path: ./provider/rule-set/category-ai-!cn.yaml,format: yaml, type: http,url: "https://ghfast.top/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ai-!cn.yaml" }
+  fake-ip-filter: { behavior: domain, format: text, interval: 86400,  path: ./provider/rule-set/fake_ip_filter.list,type: http, url: "https://cdn.jsdelivr.net/gh/juewuy/ShellCrash@dev/public/fake_ip_filter.list", }
   custom-direct: { behavior: classical, interval: 86400, path: ./provider/rule-set/custom_direct.yaml, type: http, format: yaml, url: "https://ghfast.top/https://raw.githubusercontent.com/mufeng688/Sub-Config/refs/heads/main/rule/DiyDirect.yaml" }
   custom-proxy: { behavior: classical, interval: 86400, path: ./provider/rule-set/custom_proxy.yaml, type: http, format: yaml, url: "https://ghfast.top/https://raw.githubusercontent.com/mufeng688/Sub-Config/refs/heads/main/rule/DiyProxy.yaml" }
-  fake-ip-filter: { type: http, behavior: domain, format: text, interval: 86400, url: "https://cdn.jsdelivr.net/gh/juewuy/ShellCrash@dev/public/fake_ip_filter.list", path: ./ruleset/fake_ip_filter.list }
-
+  custom-games: { behavior: classical, interval: 86400, path: ./provider/rule-set/custom_games.yaml, type: http, format: yaml, url: "https://ghfast.top/https://raw.githubusercontent.com/mufeng688/Sub-Config/refs/heads/main/rule/DiyGames.yaml" }
 
 # ----------------------------------------------------------------
 # 规则 (Rules)
