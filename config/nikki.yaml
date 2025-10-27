@@ -24,7 +24,7 @@ proxy-providers:
       interval: 600
     override:
       udp: true
-      dialer-proxy: 中转节点
+      dialer-proxy: 前置节点
       additional-prefix: "🏠 | "
 
   中转订阅: 
