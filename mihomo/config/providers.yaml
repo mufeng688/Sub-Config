@@ -1,31 +1,5 @@
 # 代理订阅提供者 (Proxy Providers)
 proxy-providers:
-  前置订阅: 
-    type: http
-    url: "" # 代理订阅链接
-    interval: 3600 # 1小时自动更新一次节点
-    path: ./provider/proxy/prefix.yaml # 缓存文件路径
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 600
-    override:
-      udp: true
-      additional-prefix: "🚀 | "
-
-  落地订阅:
-    type: http
-    url: "" # 代理订阅链接
-    interval: 3600 # 1小时自动更新一次节点
-    path: ./provider/proxy/land.yaml # 缓存文件路径
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 600
-    override:
-      udp: true
-      dialer-proxy: 前置节点
-      additional-prefix: "🏠 | "
 
   中转订阅: 
     type: http

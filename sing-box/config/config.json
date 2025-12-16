@@ -1,0 +1,172 @@
+{
+    // --- 1. 日志与 DNS ---
+    "log": {
+        "level": "info", // 日志级别, info/warn/error/debug/trace
+        "timestamp": true
+    },
+    "dns": {
+        "servers": [
+            {
+                "tag": "dns_proxy",
+                "address": "https://1.1.1.1/dns-query", // 使用 DoH 防止 DNS 污染, 通过代理发出
+                "detour": "proxy_out" // 指定后续定义的出站代理
+            },
+            {
+                "tag": "dns_direct",
+                "address": "223.5.5.5", // 国内 DNS, 用于解析国内域名
+                "detour": "direct"
+            },
+            {
+                "tag": "dns_block",
+                "address": "rcode://success" // 拦截广告等
+            }
+        ],
+        "rules": [
+            // 优先匹配规则集, 决定使用哪个 DNS 服务器
+            {
+                "rule_set": [
+                    "geosite-gfw",
+                    "geosite-telegram"
+                ],
+                "server": "dns_proxy"
+            },
+            {
+                "rule_set": "geosite-cn",
+                "server": "dns_direct"
+            },
+            {
+                "rule_set": "geosite-category-ads-all",
+                "server": "dns_block"
+            }
+        ],
+        "final": "dns_proxy", // 默认使用代理 DNS
+        "strategy": "ipv4_only"
+    },
+    // --- 2. 入站连接 ---
+    "inbounds": [
+        {
+            "type": "mixed", // 混合端口, 支持 http 和 socks5
+            "tag": "mixed-in",
+            "listen": "0.0.0.0",
+            "listen_port": 1080,
+            "sniff": true, // 开启流量嗅探, 用于更精确地匹配域名规则
+            "sniff_override_destination": true
+        },
+        {
+            "type": "tun", // TUN 虚拟网卡, 接管系统所有流量 (需要管理员权限)
+            "tag": "tun-in",
+            "interface_name": "sing-tun",
+            "inet4_address": "172.19.0.1/30",
+            "auto_route": true, // 自动设置系统路由
+            "strict_route": true,
+            "stack": "gvisor", // 使用 gvisor 网络协议栈, 稳定高效
+            "sniff": true
+        }
+    ],
+    // --- 3. 出站连接 ---
+    "outbounds": [
+        // ！！！请在这里修改为您自己的代理服务器信息！！！
+        {
+            "type": "vless",
+            "tag": "proxy_out",
+            "server": "your-server-address.com", // 你的服务器地址
+            "server_port": 443,
+            "uuid": "your-uuid", // 你的 UUID
+            "network": "ws",
+            "tls": {
+                "enabled": true,
+                "server_name": "your-server-address.com", // 你的 SNI
+                "utls": {
+                    "enabled": true,
+                    "fingerprint": "chrome"
+                }
+            },
+            "transport": {
+                "type": "ws",
+                "path": "/your-websocket-path", // 你的 WebSocket 路径
+                "headers": {
+                    "Host": "your-server-address.com"
+                }
+            }
+        },
+        {
+            "type": "direct", // 直连
+            "tag": "direct"
+        },
+        {
+            "type": "block", // 拦截
+            "tag": "block"
+        },
+        {
+            "type": "dns", // 特殊出站, 仅用于 DNS 查询
+            "tag": "dns-out"
+        }
+    ],
+    // --- 4. 路由规则 ---
+    "route": {
+        // 4.1 定义所有要用到的“规则集”
+        "rule_set": [
+            {
+                "tag": "geosite-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
+                "download_detour": "proxy_out" // 规则文件也通过代理下载, 保证可达性
+            },
+            {
+                "tag": "geosite-gfw",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-gfw.srs",
+                "download_detour": "proxy_out"
+            },
+            {
+                "tag": "geosite-telegram",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-telegram.srs",
+                "download_detour": "proxy_out"
+            },
+            {
+                "tag": "geosite-category-ads-all",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+                "download_detour": "proxy_out"
+            },
+            {
+                "tag": "geoip-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+                "download_detour": "proxy_out"
+            }
+        ],
+        // 4.2 编写路由规则, 规则从上到下依次匹配
+        "rules": [
+            {
+                "protocol": "dns", // DNS 查询流量, 交给 DNS 模块处理
+                "outbound": "dns-out"
+            },
+            {
+                "rule_set": "geosite-category-ads-all", // 广告域名, 直接拦截
+                "outbound": "block"
+            },
+            {
+                "rule_set": [
+                    "geosite-gfw",
+                    "geosite-telegram"
+                ], // GFW 和 Telegram 列表中的域名, 走代理
+                "outbound": "proxy_out"
+            },
+            {
+                "rule_set": [
+                    "geosite-cn",
+                    "geoip-cn"
+                ], // 国内域名和 IP, 走直连
+                "outbound": "direct"
+            }
+        ],
+        "final": "proxy_out" // 所有未匹配规则的流量, 默认走代理
+    }
+}
