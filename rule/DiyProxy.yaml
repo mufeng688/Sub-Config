@@ -11,3 +11,5 @@ payload:
   # cloudflare tunnel
   - DOMAIN-SUFFIX,region1.v2.argotunnel.com
   - DOMAIN-SUFFIX,region2.v2.argotunnel.com
+  - IP-CIDR,198.41.192.0/24
+  - IP-CIDR,198.41.200.0/24
