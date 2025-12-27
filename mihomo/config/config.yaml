@@ -47,6 +47,9 @@ rule-providers:
   
   # 中国区IP地址
   cn-ip: { behavior: ipcidr, interval: 86400, path: ./provider/rule-set/cn_ip.mrs, format: mrs, type: http, url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/cn.mrs" }
+
+  # private:
+  private: { behavior: ipcidr, interval: 86400, path: ./provider/rule-set/private.mrs, format: mrs, type: http, url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/private.mrs" }
   
   # 中国区域名
   cn-domain: { behavior: domain, interval: 86400, path: ./provider/rule-set/cn_domain.mrs, format: mrs, type: http, url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/cn.mrs" }
@@ -64,7 +67,7 @@ rules:
   - RULE-SET,ads,AdBlock
   
   # 局域网与私有地址直连
-  - GEOIP,private,DIRECT,no-resolve # 此条为内置规则，无需数据库，建议保留
+  - RULE-SET,private,DIRECT # 此条为内置规则，无需数据库，建议保留
 
   # 自定义规则优先
   - RULE-SET,custom-proxy,海外服务
