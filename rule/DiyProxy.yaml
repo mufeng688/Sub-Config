@@ -3,38 +3,14 @@
 # REPO: https://github.com/mufeng688/Sub-Config
 # UPDATED: 2025-01-02
 payload:
-  # ===================================================================
-  # 规则优先级 1: Cloudflare Tunnel 核心域名规则 (最优先，最推荐)
-  # 确保 cloudflared 的核心流量被精确匹配
-  # ===================================================================
-  - DOMAIN-SUFFIX,cftunnel.com
-  - DOMAIN-SUFFIX,api.cloudflare.com
-
-  # ===================================================================
-  # 规则优先级 2: 您的其他个人域名规则
-  # ===================================================================
   # Google商店
   - DOMAIN-SUFFIX,services.googleapis.cn
   - DOMAIN-SUFFIX,googleapis.cn
   # 游戏网站
   - DOMAIN-SUFFIX,byrutgame.org
-
-  # ===================================================================
-  # 规则优先级 3: Cloudflare IP地址规则 (作为补充和兜底)
-  # 注意: 这会匹配所有到 Cloudflare 节点的流量，可能导致过度代理
-  # ===================================================================
-  - IP-CIDR,173.245.48.0/20
-  - IP-CIDR,103.21.244.0/22
-  - IP-CIDR,103.22.200.0/22
-  - IP-CIDR,103.31.4.0/22
-  - IP-CIDR,141.101.64.0/18
-  - IP-CIDR,108.162.192.0/18
-  - IP-CIDR,190.93.240.0/20
-  - IP-CIDR,188.114.96.0/20
-  - IP-CIDR,197.234.240.0/22
-  - IP-CIDR,198.41.128.0/17
-  - IP-CIDR,162.158.0.0/15
-  - IP--CIDR,104.16.0.0/13
-  - IP-CIDR,104.24.0.0/14
-  - IP-CIDR,172.64.0.0/13
-  - IP-CIDR,131.0.72.0/22
+  # cloudflare tunnel
+  - DOMAIN-SUFFIX,region1.v2.argotunnel.com
+  - DOMAIN-SUFFIX,region2.v2.argotunnel.com
+  - IP-CIDR,198.41.192.0/24
+  - IP-CIDR,198.41.200.0/24
+  
