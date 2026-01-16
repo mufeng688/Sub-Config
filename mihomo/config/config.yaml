@@ -19,8 +19,7 @@ proxy-groups:
 
   - name: "海外服务"
     type: select
-    include-all: true
-    filter: "🎯" # 保留
+    proxies: [ "中转节点", "机场节点", "DIRECT"]
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png"
 
   - name: "AdBlock"
