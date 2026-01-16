@@ -4,3 +4,8 @@ sg.881288.xyz:443#SG
 jp.881288.xyz:443#JP
 kr.881288.xyz:8443#KR
 us.881288.xyz:443#US
+
+jp.111000.cc.cd:443#优选
+bestcf.030101.xyz:443#优选
+saas.sin.fan:443#优选
+freeyx.cloudflare88.eu.org:443#优选
