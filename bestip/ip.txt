@@ -1,5 +1,3 @@
-hk.881288.xyz:443#HK
-tw.881288.xyz:443#TW
 sg.881288.xyz:443#SG
 jp.881288.xyz:443#JP
 kr.881288.xyz:8443#KR
