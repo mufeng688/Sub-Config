@@ -26,57 +26,144 @@ proxy-groups:
 
   - name: "全球加速"
     type: select
-    proxies: [ "前置节点","落地节点","中转节点", "机场节点", "DIRECT"]
+    proxies: ["前置节点", "落地节点", "中转节点", "机场节点", "DIRECT"]
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png"
+
+  - name: "AI 服务"
+    type: select
+    proxies: ["前置节点", "落地节点", "中转节点", "机场节点", "DIRECT"]
+    icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Roundrobin.png"
 
   - name: "海外服务"
     type: select
-    proxies: [ "前置节点","落地节点","中转节点", "机场节点", "DIRECT"]
+    proxies: ["前置节点", "落地节点", "中转节点", "机场节点", "DIRECT"]
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png"
 
   - name: "AdBlock"
     type: select
     proxies: [REJECT]
-    icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Adblock.png" 
-  
+    icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Adblock.png"
+
   - name: "兜底分流"
     type: select
-    proxies: [ "前置节点","落地节点","中转节点", "机场节点", "DIRECT"]
+    proxies: ["前置节点", "落地节点", "中转节点", "机场节点", "DIRECT"]
     icon: "https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Final.png"
-
 
 # 规则提供者 (Rule Providers)
 rule-providers:
   # 广告规则
-  ads: { behavior: domain, interval: 86400, path: ./provider/rule-set/ads.mrs, format: mrs, type: http, url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-ads-all.mrs" }
+  ads:
+    {
+      behavior: domain,
+      interval: 86400,
+      path: ./provider/rule-set/ads.mrs,
+      format: mrs,
+      type: http,
+      url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-ads-all.mrs",
+    }
 
   # GFW 列表
-  gfw: { behavior: domain, interval: 86400, path: ./provider/rule-set/gfw.mrs, format: mrs, type: http, url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/gfw.mrs" }
-  
+  gfw:
+    {
+      behavior: domain,
+      interval: 86400,
+      path: ./provider/rule-set/gfw.mrs,
+      format: mrs,
+      type: http,
+      url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/gfw.mrs",
+    }
+
   # 非中国区域名
-  geolocation-!cn: { behavior: domain, interval: 86400, path: ./provider/rule-set/geolocation-!cn.mrs, format: mrs, type: http, url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/geolocation-!cn.mrs" }
-  
+  geolocation-!cn:
+    {
+      behavior: domain,
+      interval: 86400,
+      path: ./provider/rule-set/geolocation-!cn.mrs,
+      format: mrs,
+      type: http,
+      url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/geolocation-!cn.mrs",
+    }
+
+  # ai域名
+  category-ai-!cn:
+    {
+      behavior: domain,
+      interval: 86400,
+      path: ./provider/rule-set/category-ai-!cn.mrs,
+      format: mrs,
+      type: http,
+      url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-ai-!cn.mrs",
+    }
+
   # 中国区IP地址
-  cn-ip: { behavior: ipcidr, interval: 86400, path: ./provider/rule-set/cn_ip.mrs, format: mrs, type: http, url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/cn.mrs" }
+  cn-ip:
+    {
+      behavior: ipcidr,
+      interval: 86400,
+      path: ./provider/rule-set/cn_ip.mrs,
+      format: mrs,
+      type: http,
+      url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/cn.mrs",
+    }
 
   # private:
-  private: { behavior: ipcidr, interval: 86400, path: ./provider/rule-set/private.mrs, format: mrs, type: http, url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/private.mrs" }
-  
+  private:
+    {
+      behavior: ipcidr,
+      interval: 86400,
+      path: ./provider/rule-set/private.mrs,
+      format: mrs,
+      type: http,
+      url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/private.mrs",
+    }
+
   # 中国区域名
-  cn-domain: { behavior: domain, interval: 86400, path: ./provider/rule-set/cn_domain.mrs, format: mrs, type: http, url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/cn.mrs" }
-  
+  cn-domain:
+    {
+      behavior: domain,
+      interval: 86400,
+      path: ./provider/rule-set/cn_domain.mrs,
+      format: mrs,
+      type: http,
+      url: "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/cn.mrs",
+    }
+
   # fake-ip 过滤器
-  fake-ip-filter: { behavior: domain, format: text, interval: 86400, path: ./provider/rule-set/fake_ip_filter.list, type: http, url: "https://cdn.jsdelivr.net/gh/juewuy/ShellCrash@dev/public/fake_ip_filter.list", }
-  
+  fake-ip-filter:
+    {
+      behavior: domain,
+      format: text,
+      interval: 86400,
+      path: ./provider/rule-set/fake_ip_filter.list,
+      type: http,
+      url: "https://cdn.jsdelivr.net/gh/juewuy/ShellCrash@dev/public/fake_ip_filter.list",
+    }
+
   # 自定义规则
-  custom-direct: { behavior: classical, interval: 86400, path: ./provider/rule-set/custom_direct.yaml, type: http, format: yaml, url: "https://ghfast.top/https://raw.githubusercontent.com/mufeng688/Sub-Config/refs/heads/main/rule/DiyDirect.yaml" }
-  custom-proxy: { behavior: classical, interval: 86400, path: ./provider/rule-set/custom_proxy.yaml, type: http, format: yaml, url: "https://ghfast.top/https://raw.githubusercontent.com/mufeng688/Sub-Config/refs/heads/main/rule/DiyProxy.yaml" }
+  custom-direct:
+    {
+      behavior: classical,
+      interval: 86400,
+      path: ./provider/rule-set/custom_direct.yaml,
+      type: http,
+      format: yaml,
+      url: "https://ghfast.top/https://raw.githubusercontent.com/mufeng688/Sub-Config/refs/heads/main/rule/DiyDirect.yaml",
+    }
+  custom-proxy:
+    {
+      behavior: classical,
+      interval: 86400,
+      path: ./provider/rule-set/custom_proxy.yaml,
+      type: http,
+      format: yaml,
+      url: "https://ghfast.top/https://raw.githubusercontent.com/mufeng688/Sub-Config/refs/heads/main/rule/DiyProxy.yaml",
+    }
 
 # 规则 (Rules)
 rules:
   # 广告拦截
   - RULE-SET,ads,AdBlock
-  
+
   # 局域网与私有地址直连
   - RULE-SET,private,DIRECT # 此条为内置规则，无需数据库，建议保留
 
@@ -89,6 +176,7 @@ rules:
   - RULE-SET,cn-ip,DIRECT
 
   # 需要代理的流量
+  - RULE-SET,category-ai-!cn,AI 服务
   - RULE-SET,gfw,全球加速
   - RULE-SET,geolocation-!cn,全球加速
 
