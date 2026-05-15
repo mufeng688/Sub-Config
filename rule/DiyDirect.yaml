@@ -89,7 +89,7 @@ payload:
 
   # py steam游戏
   - DOMAIN-SUFFIX,eccdnx.com
-  
+
   # 小说
   - DOMAIN-SUFFIX,fanqxsw.com
 
@@ -104,3 +104,4 @@ payload:
 
   # ai 公益站
   - DOMAIN-SUFFIX,elysia.h-e.top
+  - DOMAIN-SUFFIX,muyuan.do
